@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 4 Chapter 3</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/DCC_4_3_sky.webp" class="layer sky" alt="Sky">
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <img src="../Images/DCC_4_3_background.webp" class="layer background parallax-bg" alt="Background">
+            <img src="../Images/DCC_4_3_midground.webp" class="layer midground parallax-mg" alt="Midground">
+            <img src="../Images/DCC_4_3_foreground.webp" class="layer foreground" alt="Foreground">
+
+            <img src="../Images/DCC_4_3_wasteland.webp" 
+                class="layer wasteland breathe" 
+                style="z-index: 65; --breathe-duration: 10s; --breathe-delay: -3s;"
+                alt="Wasteland">
+
+            <canvas class="layer sand" 
+                    style="z-index: 70;" 
+                    data-origin-x="1.0" 
+                    data-vel-x="-0.6" 
+                    data-spawn-rate="0.01"
+                    data-color="160, 50, 30">
+            </canvas>
+
+            <img src="../Images/DCC_4_3_carl.webp"
+                 class="layer carl breathe"
+                 style="z-index: 80; --breathe-duration: 8s; --breathe-delay: -0s;"
+                 alt="Carl">
+                 
+            <img src="../Images/DCC_4_3_katia.webp"
+                 class="layer katia breathe"
+                 style="z-index: 81; --breathe-duration: 12s; --breathe-delay: -2s;"
+                 alt="katia">
+
+            <img src="../Images/DCC_4_3_mongo.webp"
+                 class="layer mongo bob"
+                 style="z-index: 83; --bob-duration: 4s;"
+                 alt="Mongo">
+
+            <canvas id="twinkle-canvas-1" 
+                    class="layer twinkle bob" 
+                    style="z-index: 84; --bob-duration: 4s;" 
+                    data-origin-x="0.728" 
+                    data-origin-y="0.57"
+                    data-spot-color="160, 50, 30"
+                    data-rays="4"
+                    data-size="0.015"
+                    data-pulse-speed="1.5">
+            </canvas>
+
+            <canvas id="twinkle-canvas-2" 
+                    class="layer twinkle bob" 
+                    style="z-index: 85; --bob-duration: 4s;" 
+                    data-origin-x="0.715" 
+                    data-origin-y="0.57"
+                    data-spot-color="160, 50, 30"
+                    data-rays="4"
+                    data-size="0.015"
+                    data-pulse-speed="1.5">
+            </canvas>
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/sand.js"></script>
+    <script src="../js/twinkle.js"></script>
+</body>
+</html>
