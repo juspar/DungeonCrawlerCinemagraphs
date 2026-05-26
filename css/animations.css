@@ -1,0 +1,202 @@
+/* 
+    ANIMATIONS 
+*/
+
+/* Sky Twinkle: pulse brightness and contrast slightly */
+@keyframes twinkle {
+    0%, 100% { filter: brightness(1) contrast(1); }
+    50% { filter: brightness(1.1) contrast(1.2); }
+    75% { filter: brightness(0.9) contrast(1.1); }
+}
+.sky {
+    animation: twinkle 6s ease-in-out infinite;
+}
+
+/* Sea Swells: Gentle horizontal stretch to avoid exposing the horizon gap */
+@keyframes sea-swell {
+    0%, 100% { transform: scaleX(1) translateZ(0); }
+    50% { transform: scaleX(1.02) translateZ(0); }
+}
+.sea {
+    animation: sea-swell 10s ease-in-out infinite;
+}
+
+/* Light Flicker: DEPRECATED — replaced by the general-purpose .pulse animation.
+   Scenes previously using .light for flicker should use .pulse with appropriate
+   --pulse-duration and --pulse-delay CSS variables instead. */
+
+/* Subject Breathing
+   The @keyframes are defined here. Actual animation is applied via the
+   .breathe or .bob utility classes (below), not directly on .subject-N.
+   .subject only sets the transform-origin so the scale grows from the feet. */
+@keyframes breathe {
+    0%, 100% { transform: scale(1, 1) translateZ(0); }
+    50% { transform: scale(1.008, 1.015) translateZ(0); }
+}
+.subject, .sparkle-layer {
+    transform-origin: bottom center; /* Breathe / bob from the feet up */
+}
+
+/* Bobbing: vertical scale pulse. Use .bob on any element instead of .subject-3.
+   Override timing with --bob-duration and --bob-delay via inline style. */
+@keyframes bob {
+    0%, 100% { transform: scaleY(1) translateZ(0); }
+    50% { transform: scaleY(1.07) translateZ(0); }
+}
+.bob {
+    transform-origin: bottom center;
+    animation: bob var(--bob-duration, 4s) ease-in-out infinite;
+    animation-delay: var(--bob-delay, 0s);
+}
+
+@keyframes slow-pan {
+    0%, 100% { transform: scale(1.04) translateX(-1%) translateZ(0); }
+    50% { transform: scale(1.04) translateX(1%) translateZ(0); }
+}
+.parallax-camera {
+    animation: slow-pan 30s ease-in-out infinite;
+}
+
+/* Boat Scene Animations */
+@keyframes boat-rock {
+    0%, 100% { transform: rotate(-0.5deg) scale(1.05) translateZ(0); }
+    50% { transform: rotate(0.5deg) scale(1.05) translateZ(0); }
+}
+
+@keyframes heavy-pitch {
+    0%, 100% { transform: translateY(-4%) scale(1.2) translateZ(0); }
+    50% { transform: translateY(4%) scale(1.2) translateZ(0); }
+}
+
+@keyframes ripple {
+    0%, 100% { transform: scale(1) skewX(0deg) translateZ(0); }
+    50% { transform: scale(1.02) skewX(1deg) translateZ(0); }
+}
+
+.boat-camera {
+    animation: boat-rock 12s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.ocean-pitch {
+    animation: heavy-pitch 12s ease-in-out infinite;
+}
+
+.ripple-effect {
+    animation: ripple 8s ease-in-out infinite;
+}
+
+/* Book 2, Scene 6 Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg) translateZ(0); }
+    100% { transform: rotate(360deg) translateZ(0); }
+}
+.spin-sun {
+    animation: spin 30s linear infinite;
+}
+
+
+
+/* Custom Parallax to slow down background layers relative to the camera pan */
+@keyframes parallax-slow {
+    0%, 100% { transform: scale(1.06) translateX(0.8%) translateZ(0); }
+    50% { transform: scale(1.06) translateX(-0.8%) translateZ(0); }
+}
+.parallax-bg {
+    animation: parallax-slow 30s ease-in-out infinite;
+}
+
+/* Mid-speed parallax for midground layers (guards, etc.).
+   Moves faster than .parallax-bg but slower than elements that ride the raw camera. */
+@keyframes parallax-mid {
+    0%, 100% { transform: scale(1.05) translateX(0.4%) translateZ(0); }
+    50% { transform: scale(1.05) translateX(-0.4%) translateZ(0); }
+}
+.parallax-mid {
+    animation: parallax-mid 30s ease-in-out infinite;
+}
+
+/* Book 2, Scene 15 Dancers */
+@keyframes dance-sway {
+    0%, 100% { transform: translateX(-2.5%) translateY(0) translateZ(0); }
+    25% { transform: translateX(0) translateY(-1%) translateZ(0); }
+    50% { transform: translateX(2.5%) translateY(0) translateZ(0); }
+    75% { transform: translateX(0) translateY(-1%) translateZ(0); }
+}
+
+.dancers-1 {
+    animation: dance-sway 4.5s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.dancers-2 {
+    animation: dance-sway 3.2s ease-in-out infinite;
+    animation-delay: -1.5s;
+    transform-origin: bottom center;
+}
+
+.dancers-3 {
+    animation: dance-sway 5.8s ease-in-out infinite;
+    animation-delay: -2.3s;
+    transform-origin: bottom center;
+}
+
+/* General-Purpose Pulse: layers a high-state image over a low-state base.
+   Apply to the high-state element; the low-state element is always visible beneath.
+   Override duration/delay with inline style or CSS vars. */
+@keyframes pulse {
+    0%, 100% { opacity: 0; }
+    50%       { opacity: 1; }
+}
+.pulse {
+    animation: pulse var(--pulse-duration, 3s) ease-in-out infinite;
+    animation-delay: var(--pulse-delay, 0s);
+}
+
+/* Reusable Breathing Animation.
+   Prefer this over hard-coded .subject-N classes for new scenes.
+   Set --breathe-duration and --breathe-delay via inline style. */
+.breathe {
+    transform-origin: bottom center;
+    animation: breathe var(--breathe-duration, 8s) ease-in-out infinite;
+    animation-delay: var(--breathe-delay, 0s);
+}
+
+/* Twinkling Stars layer sits between sky and foreground layers */
+.stars {
+    pointer-events: none;
+}
+
+/* Infinite Horizontal Scrolling Background */
+@keyframes infinite-scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-200vw); }
+}
+
+.scrolling-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400vw;
+    height: 100vh;
+    display: flex;
+    z-index: 4;
+    animation-name: infinite-scroll-left;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: var(--scroll-speed, 40s);
+    animation-direction: var(--scroll-direction, normal);
+    will-change: transform;
+}
+
+.scroll-segment {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.scroll-segment.mirrored {
+    transform: scaleX(-1);
+}

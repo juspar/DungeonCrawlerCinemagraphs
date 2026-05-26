@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 1 Chapter 3</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/DCC_1_3_base.webp" class="layer base" alt="Base">
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <canvas id="fire-canvas" 
+                class="layer fire" 
+                style="z-index: 16;" 
+                data-size-multiplier="1.15" 
+                data-fire-x="0.5" 
+                data-fire-y="0.55" 
+                data-fire-hue="180">
+            </canvas>
+
+            <img src="../Images/DCC_1_3_background.webp" class="layer background parallax-bg" alt="Background">   
+
+            <img src="../Images/DCC_1_3_midground.webp" class="layer midground parallax-mid" alt="Midground">
+            
+            <img src="../Images/DCC_1_3_carl.webp"
+                 class="layer subject-1 breathe"
+                 style="z-index: 80; --breathe-duration: 6.5s;"
+                 alt="Carl">
+            <img src="../Images/DCC_1_3_mordecai.webp"
+                 class="layer subject-2 breathe"
+                 style="z-index: 85; --breathe-duration: 5s; --breathe-delay: -2s;"
+                 alt="Mordecai">
+            
+            <canvas id="dust-canvas" 
+                class="layer dust" 
+                style="z-index: 100;"
+                data-spot-x="0.5"
+                data-spot-y="0.55"
+                data-spot-color="0,255,255"
+                data-enable-glow="true">
+            </canvas>
+
+            <img src="../Images/DCC_1_3_foreground.webp" class="layer foreground" alt="Foreground">
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/fire.js"></script>
+    <script src="../js/dust.js"></script>
+</body>
+</html>

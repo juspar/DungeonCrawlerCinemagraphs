@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 3 Chapter 4</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/DCC_3_4_base.webp" class="layer base" alt="Base">
+        <img src="../Images/DCC_3_4_base_top.webp" class="layer base_top" alt="Base Top" style="z-index: 45;" >
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <img src="../Images/DCC_3_4_background.webp" class="layer background parallax-bg" alt="Background">
+            <img src="../Images/DCC_3_4_midground.webp" class="layer midground parallax-mg" alt="Midground">
+
+            <img src="../Images/DCC_3_4_glow_low.webp" class="layer glow-low" style="z-index: 41" alt="Glow Low">
+            <img src="../Images/DCC_3_4_glow_high.webp"
+                 class="layer glow-high pulse"
+                 style="z-index: 43; --pulse-duration: 5s; --pulse-delay: 0s;"
+                 alt="Glow High">
+
+            <img src="../Images/DCC_3_4_moredecai.webp"
+                 class="layer mordecai breathe"
+                 style="z-index: 80; --breathe-duration: 12s; --breathe-delay: 1s;"
+                 alt="Mordecai">
+            <img src="../Images/DCC_3_4_donut.webp"
+                 class="layer donut breathe"
+                 style="z-index: 81; --breathe-duration: 5s; --breathe-delay: -2s;"
+                 alt="Donut">
+
+            <img src="../Images/DCC_3_4_carl.webp"
+                 class="layer carl breathe"
+                 style="z-index: 83; --breathe-duration: 8s; --breathe-delay: -0s;"
+                 alt="Carl">
+            <img src="../Images/DCC_3_4_katia.webp"
+                 class="layer katia breathe"
+                 style="z-index: 84; --breathe-duration: 7s; --breathe-delay: -3s;"
+                 alt="katia">
+
+            <img src="../Images/DCC_3_4_mongo.webp"
+                 class="layer mongo bob"
+                 style="z-index: 85; --bob-duration: 4s;"
+                 alt="Mongo">
+
+            <img src="../Images/DCC_3_4_foreground.webp" class="layer foreground"  alt="Foreground">
+
+            <canvas id="dust-canvas" class="layer dust"
+                    style="z-index: 100;"
+                    data-spot-color="255,255,255">
+            </canvas>
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/dust.js"></script>
+</body>
+</html>

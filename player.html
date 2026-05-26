@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Ambient Player</title>
+    <link rel="stylesheet" href="css/player.css">
+</head>
+<body>
+    <!-- A button to exit the player and return to the menu -->
+    <a href="index.html" class="exit-button" title="Return to Menu">Exit Ambient Mode</a>
+    
+    <!-- The two iframes for seamless crossfading -->
+    <iframe id="frame-a" class="scene-frame active"></iframe>
+    <iframe id="frame-b" class="scene-frame hidden"></iframe>
+
+    <script src="js/player.js"></script>
+
+    <!-- Spotify Ambient Player overlay.-->
+    <div class="player-spotify-bar">
+        <iframe
+            id="spotify-embed"
+            src="https://open.spotify.com/embed/playlist/7vU18FCDSINcKCy5D0aCtJ?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <!-- Left-side skyscraper ad (160x600). Replace the inner comment with your ad network tag. -->
+    <div class="player-ad-side player-ad-side-left" id="player-ad-side-left">
+        <!-- ## AD NETWORK TAG HERE ## -->
+        Advertisement
+    </div>
+
+    <!-- Right-side skyscraper ad (160x600). Replace the inner comment with your ad network tag. -->
+    <div class="player-ad-side player-ad-side-right" id="player-ad-side-right">
+        <!-- ## AD NETWORK TAG HERE ## -->
+        Advertisement
+    </div>
+</body>
+</html>

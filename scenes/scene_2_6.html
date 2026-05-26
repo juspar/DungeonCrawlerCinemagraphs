@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 2 Chapter 6</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/DCC_2_6_sky.webp" class="layer sky" alt="Sky">
+
+        <div class="layer sun" style="pointer-events: none;">
+            <svg class="spin-sun" style="position: absolute; left: 25vw; top: 15vh; transform-origin: center center; width: 300px; height: 300px; margin-left: -150px; margin-top: -150px;" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="20" fill="#ffca28" filter="blur(2px)" />
+                <g stroke="#ffca28" stroke-width="4" stroke-linecap="round">
+                    <line x1="50" y1="10" x2="50" y2="25" />
+                    <line x1="50" y1="75" x2="50" y2="90" />
+                    <line x1="10" y1="50" x2="25" y2="50" />
+                    <line x1="75" y1="50" x2="90" y2="50" />
+                    <line x1="21" y1="21" x2="32" y2="32" />
+                    <line x1="68" y1="68" x2="79" y2="79" />
+                    <line x1="21" y1="79" x2="32" y2="68" />
+                    <line x1="68" y1="32" x2="79" y2="21" />
+                </g>
+            </svg>
+        </div>
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <img src="../Images/DCC_2_6_background.webp" class="layer background parallax-bg" alt="Background">
+
+            <img src="../Images/DCC_2_6_midground.webp" class="layer midground parallax-mid" alt="Midground">
+
+            <img src="../Images/DCC_2_6_foreground.webp" class="layer foreground" alt="Foreground">
+
+            <canvas class="layer steam" style="z-index: 65;"
+                    data-origin-x="0.21"
+                    data-origin-y-min="0.70"
+                    data-origin-y-max="0.75"
+                    data-vel-x="0.0"
+                    data-vel-x-rand="0.02"
+                    data-vel-y="-0.02"
+                    data-vel-y-rand="0.01"
+                    data-spawn-rate="0.35">
+            </canvas>            
+            <canvas class="layer steam" style="z-index: 65;"
+                    data-origin-x="0.70"
+                    data-origin-y-min="0.70"
+                    data-origin-y-max="0.75"
+                    data-vel-x="0.0"
+                    data-vel-x-rand="0.02"
+                    data-vel-y="-0.02"
+                    data-vel-y-rand="0.01"
+                    data-spawn-rate="0.35">
+            </canvas>
+
+            <img src="../Images/DCC_2_6_mongo.webp"
+                 class="layer mongo bob"
+                 style="z-index: 70; --bob-duration: 2s;"
+                 alt="Mongo">
+
+            <canvas id="sparkle-canvas" class="layer sparkle" style="z-index: 72;" data-origin-x="0.30" data-origin-y="0.715"></canvas>
+
+            <img src="../Images/DCC_2_6_donut.webp"
+                 class="layer donut breathe"
+                 style="z-index: 75; --breathe-duration: 5s; --breathe-delay: -2s;"
+                 alt="Donut">
+            <img src="../Images/DCC_2_6_carl.webp"
+                 class="layer carl breathe"
+                 style="z-index: 80;"
+                 alt="Carl">
+
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/steam.js"></script>
+    <script src="../js/sparkle.js"></script>
+</body>
+</html>

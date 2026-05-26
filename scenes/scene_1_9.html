@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 1 Chapter 9</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/DCC_1_9_base.webp" class="layer floor" style="z-index: 10;" alt="Floor">
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <img src="../Images/DCC_1_9_background.webp" class="layer background parallax-bg" alt="Background">
+            
+            <canvas id="balls-canvas" class="layer ballpit" style="z-index: 30;"></canvas>
+
+            <img src="../Images/DCC_1_9_midground.webp" class="layer midground parallax-mid" alt="Midground">
+
+            <img src="../Images/DCC_1_9_bopca.webp" class="layer bopca bob" style="z-index: 50;" alt="Bopca">
+            
+            <canvas id="steam-canvas" class="layer steam"
+                    style="z-index: 55;"
+                    data-origin-x="1.0"
+                    data-origin-y-min="0.0"
+                    data-origin-y-max="0.5"
+                    data-vel-x="-0.05"
+                    data-vel-x-rand="0.05"
+                    data-vel-y="-0.02"
+                    data-vel-y-rand="0.03">
+            </canvas>
+
+            <img src="../Images/DCC_1_9_foreground.webp" class="layer foreground" alt="Foreground">
+            
+            <img src="../Images/DCC_1_9_carl.webp" class="layer carl breathe" style="z-index: 80;" alt="Carl">
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/balls.js"></script>
+    <script src="../js/steam.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 3 Chapter 20</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <div class="scrolling-bg-container" style="--scroll-speed: 240s; --scroll-direction: normal;">
+            <img src="../Images/DCC_3_20_sea_bed.webp" class="scroll-segment" alt="Sea Bed">
+            <img src="../Images/DCC_3_20_sea_bed.webp" class="scroll-segment mirrored" alt="Sea Bed Mirrored">
+            <img src="../Images/DCC_3_20_sea_bed.webp" class="scroll-segment" alt="Sea Bed">
+            <img src="../Images/DCC_3_20_sea_bed.webp" class="scroll-segment mirrored" alt="Sea Bed Mirrored">
+        </div>
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <canvas id="bubbles-canvas" class="layer bubbles" style="z-index: 10;" data-vel-x="-0.00833"></canvas>
+            
+            <img src="../Images/DCC_3_20_background.webp" class="layer background" alt="Background">
+
+            <img src="../Images/DCC_3_20_donut.webp"
+                 class="layer donut breathe"
+                 style="z-index: 21; --breathe-duration: 5s; --breathe-delay: -2s;"
+                 alt="Donut">
+
+            <img src="../Images/DCC_3_20_midground.webp" class="layer midground" alt="Midground">
+
+            <img src="../Images/DCC_3_20_carl.webp"
+                 class="layer carl breathe"
+                 style="z-index: 80; --breathe-duration: 8s; --breathe-delay: -0s;"
+                 alt="Carl">
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/bubbles.js"></script>
+</body>
+</html>

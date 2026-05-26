@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Inventory: Dungeon Cinemagraphs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <div class="inventory-container">
+        <header class="inventory-header">
+            <h1>Inventory: Dungeon Cinemagraphs</h1>
+            <button id="toggle-select-mode" class="mode-toggle">Enter Select Mode</button>
+        </header>
+
+        <div class="inventory-body">
+            <aside class="tabs">
+                <button class="tab active" data-target="book1">Book 1</button>
+                <button class="tab" data-target="book2">Book 2</button>
+                <button class="tab" data-target="book3">Book 3</button>
+                <button class="tab" data-target="book4">Book 4</button>
+                <button class="tab" data-target="book5">Book 5</button>
+                <button class="tab" data-target="book6">Book 6</button>
+                <button class="tab" data-target="book7">Book 7</button>
+                <button class="tab" data-target="book8">Book 8</button>
+            </aside>
+
+            <main class="inventory-grid-container">
+                <div id="book1" class="inventory-grid active-grid">
+                    <!-- Changed href to data-url so JS handles the click logic depending on the mode -->
+                    <div class="item-slot selectable" data-url="scenes/scene_1_1.html" title="Chapter 1">
+                        <div class="item-icon scene-1-1"></div>
+                        <span class="item-name">Chapter 1</span>
+                    </div>
+                    <div class="item-slot selectable" data-url="scenes/scene_1_3.html" title="Chapter 3">
+                        <div class="item-icon scene-1-3"></div>
+                        <span class="item-name">Chapter 3</span>
+                    </div>
+                    <div class="item-slot selectable" data-url="scenes/scene_1_9.html" title="Chapter 9">
+                        <div class="item-icon scene-1-9"></div>
+                        <span class="item-name">Chapter 9</span>
+                    </div>
+                    <div class="item-slot selectable" data-url="scenes/scene_1_28.html" title="Chapter 28">
+                        <div class="item-icon scene-1-28"></div>
+                        <span class="item-name">Chapter 28</span>
+                    </div>
+                    <!-- Empty slots for visual RPG effect -->
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                </div>
+
+                <div id="book2" class="inventory-grid">
+                    <div class="item-slot selectable" data-url="scenes/scene_2_6.html" title="Chapter 6">
+                        <div class="item-icon scene-2-6"></div>
+                        <span class="item-name">Chapter 6</span>
+                    </div>
+                    <div class="item-slot selectable" data-url="scenes/scene_2_15.html" title="Chapter 15">
+                        <div class="item-icon scene-2-15"></div>
+                        <span class="item-name">Chapter 15</span>
+                    </div>
+                    <div class="item-slot selectable" data-url="scenes/scene_2_24.html" title="Chapter 24">
+                        <div class="item-icon scene-2-24"></div>
+                        <span class="item-name">Chapter 24</span>
+                    </div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                </div>
+
+                <div id="book3" class="inventory-grid">
+                    <div class="item-slot selectable" data-url="scenes/scene_3_2.html" title="Chapter 2">
+                        <div class="item-icon scene-3-2"></div>
+                        <span class="item-name">Chapter 2</span>
+                    </div>
+                    <div class="item-slot selectable" data-url="scenes/scene_3_4.html" title="Chapter 4">
+                        <div class="item-icon scene-3-4"></div>
+                        <span class="item-name">Chapter 4</span>
+                    </div>
+                    <div class="item-slot selectable" data-url="scenes/scene_3_20.html" title="Chapter 20">
+                        <div class="item-icon scene-3-20"></div>
+                        <span class="item-name">Chapter 20</span>
+                    </div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                </div>
+
+                <div id="book4" class="inventory-grid">
+                    <div class="item-slot selectable" data-url="scenes/scene_4_3.html" title="Chapter 3">
+                        <div class="item-icon scene-4-3"></div>
+                        <span class="item-name">Chapter 3</span>
+                    </div>
+                    <div class="item-slot selectable" data-url="scenes/scene_4_20.html" title="Chapter 20">
+                        <div class="item-icon scene-4-20"></div>
+                        <span class="item-name">Chapter 20</span>
+                    </div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                </div>
+
+                <div id="book5" class="inventory-grid">
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                </div>
+
+                <div id="book6" class="inventory-grid">
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                </div>
+
+                <div id="book7" class="inventory-grid">
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                </div>
+
+                <div id="book8" class="inventory-grid">
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                    <div class="item-slot empty"></div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Playlist Controls (Hidden by default) -->
+        <div id="playlist-controls" class="playlist-controls hidden">
+            <span>Selected Scenes: <strong id="selection-count">0</strong></span>
+
+            <label for="duration-select">Change every:</label>
+            <select id="duration-select">
+                <option value="1">1 Minute</option>
+                <option value="5" selected>5 Minutes</option>
+                <option value="10">10 Minutes</option>
+                <option value="15">15 Minutes</option>
+                <option value="30">30 Minutes</option>
+            </select>
+
+            <button id="start-playlist" class="start-btn" disabled>Start Playlist</button>
+        </div>
+        
+        <footer style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.8rem; padding: 20px;">
+            Unofficial Fan Content, not endorsed by Matt Dinniman, LLC, or the Borant Corporation.
+        </footer>
+    </div>
+
+    <!-- Advertising Slots -->
+    <!-- Bottom leaderboard (728x90). Replace the inner comment with your ad network tag. -->
+    <div class="ad-banner-bottom" id="ad-bottom">
+        <!-- AD NETWORK TAG HERE -->
+        Advertisement
+    </div>
+
+    <!-- Right-side skyscraper (160x600). Replace the inner comment with your ad network tag. -->
+    <div class="ad-banner-side" id="ad-side">
+        <!-- AD NETWORK TAG HERE -->
+        Advertisement
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
