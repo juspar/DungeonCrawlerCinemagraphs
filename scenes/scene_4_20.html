@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 4 Chapter 20</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/DCC_4_20_sky.webp" class="layer sky" alt="Sky">
+        <img src="../Images/DCC_4_20_beach.webp" class="layer beach"  style="z-index: 8" alt="Beach">
+        <canvas id="sand-sparkle-canvas" 
+                class="layer sand-sparkle" 
+                style="z-index: 9;"
+                data-sparkle-count="400"
+                data-color="240, 200, 120"
+                data-y-min="0.55"
+                data-y-max="1.0">
+        </canvas>
+        <img src="../Images/DCC_4_20_background.webp" class="layer background"  style="z-index: 10" alt="Background">
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+  
+            <img src="../Images/DCC_4_20_midground.webp" class="layer midground" alt="Midground">
+            <img src="../Images/DCC_4_20_foreground.webp" class="layer foreground" alt="Foreground">
+
+            <img src="../Images/DCC_4_20_wasteland.webp" 
+                class="layer wasteland breathe" 
+                style="z-index: 83; --breathe-duration: 10s; --breathe-delay: -3s;"
+                alt="Wasteland">
+
+            <img src="../Images/DCC_4_20_carl.webp"
+                 class="layer carl breathe"
+                 style="z-index: 80; --breathe-duration: 8s; --breathe-delay: -0s;"
+                 alt="Carl">
+                 
+            <img src="../Images/DCC_4_20_katia.webp"
+                 class="layer katia breathe"
+                 style="z-index: 81; --breathe-duration: 12s; --breathe-delay: -2s;"
+                 alt="katia">
+
+            <img src="../Images/DCC_4_20_mongo.webp"
+                 class="layer mongo bob"
+                 style="z-index: 82; --bob-duration: 4s;"
+                 alt="Mongo">
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/sand_sparkle.js"></script>
+
+</body>
+</html>
