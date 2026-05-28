@@ -225,6 +225,10 @@ body {
     background-image: url('../Images/DCC_4_20_thumbnail.webp');
 }
 
+.scene-4-33 {
+    background-image: url('../Images/DCC_4_33_thumbnail.webp');
+}
+
 /* --- SPOTIFY PLAYER --- */
 .spotify-bar {
     width: 100%;
