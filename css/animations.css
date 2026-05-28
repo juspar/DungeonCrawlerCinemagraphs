@@ -116,6 +116,10 @@
     animation: parallax-mid 30s ease-in-out infinite;
 }
 
+.parallax-mg {
+    animation: parallax-mid 30s ease-in-out infinite;
+}
+
 /* Book 2, Scene 15 Dancers */
 @keyframes dance-sway {
     0%, 100% { transform: translateX(-2.5%) translateY(0) translateZ(0); }
