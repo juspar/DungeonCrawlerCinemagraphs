@@ -19,7 +19,7 @@
     <div class="scene-container">
         <!-- Static deep background elements -->
         <img src="../Images/scene_4_20/DCC_4_20_sky.webp" class="layer sky parallax-static" alt="Sky">
-        <img src="../Images/scene_4_20/DCC_4_20_beach.webp" class="layer beach parallax-static"  style="z-index: 8" alt="Beach">
+        <img src="../Images/scene_4_20/DCC_4_20_beach.webp" class="layer beach parallax-bg"  style="z-index: 8" alt="Beach">
         <canvas id="sand-sparkle-canvas" 
                 class="layer sand-sparkle parallax-static" 
                 style="z-index: 9;"
@@ -28,16 +28,15 @@
                 data-y-min="0.55"
                 data-y-max="1.0">
         </canvas>
-        <img src="../Images/scene_4_20/DCC_4_20_background.webp" class="layer background parallax-static"  style="z-index: 10" alt="Background">
-
         <!-- Camera effected layers -->
         <div class="parallax-camera">
-  
-            <img src="../Images/scene_4_20/DCC_4_20_midground.webp" class="layer midground parallax-fg" alt="Midground">
+            <img src="../Images/scene_4_20/DCC_4_20_background.webp" class="layer background parallax-bg"  style="z-index: 10" alt="Background">
+            
+            <img src="../Images/scene_4_20/DCC_4_20_midground.webp" class="layer midground parallax-mid" alt="Midground">
             <img src="../Images/scene_4_20/DCC_4_20_foreground.webp" class="layer foreground parallax-fg" alt="Foreground">
 
             <img src="../Images/scene_4_20/DCC_4_20_wasteland.webp" 
-                class="layer wasteland breathe parallax-fg" 
+                class="layer wasteland breathe parallax-bg" 
                 style="z-index: 83; --breathe-duration: 10s; --breathe-delay: -3s;"
                 alt="Wasteland">
 

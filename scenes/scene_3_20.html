@@ -24,19 +24,19 @@
             <img src="../Images/scene_3_20/DCC_3_20_sea_bed.webp" class="scroll-segment parallax-static" alt="Sea Bed">
             <img src="../Images/scene_3_20/DCC_3_20_sea_bed.webp" class="scroll-segment mirrored parallax-static" alt="Sea Bed Mirrored">
         </div>
+        <canvas id="bubbles-canvas" class="layer bubbles parallax-static" style="z-index: 10;" data-vel-x="-0.00833"></canvas>
 
         <!-- Camera effected layers -->
         <div class="parallax-camera">
-            <canvas id="bubbles-canvas" class="layer bubbles parallax-fg" style="z-index: 10;" data-vel-x="-0.00833"></canvas>
             
-            <img src="../Images/scene_3_20/DCC_3_20_background.webp" class="layer background parallax-fg" alt="Background">
+            <img src="../Images/scene_3_20/DCC_3_20_background.webp" class="layer background parallax-bg" alt="Background">
 
             <img src="../Images/scene_3_20/DCC_3_20_donut.webp"
-                 class="layer donut breathe parallax-fg"
+                 class="layer donut breathe parallax-bg"
                  style="z-index: 21; --breathe-duration: 5s; --breathe-delay: -2s;"
                  alt="Donut">
 
-            <img src="../Images/scene_3_20/DCC_3_20_midground.webp" class="layer midground parallax-fg" alt="Midground">
+            <img src="../Images/scene_3_20/DCC_3_20_midground.webp" class="layer midground parallax-mid" alt="Midground">
 
             <img src="../Images/scene_3_20/DCC_3_20_carl.webp"
                  class="layer carl breathe parallax-fg"
