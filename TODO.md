@@ -13,7 +13,7 @@
 - [ ] 2.16. 'The One-eyed Narwhal'? Fitz's medieval pub?
 - [ ] 3.26. 'The Downward Dog' Tavern bar with Growler Gary?
 - [x] 4.20. On the beach at the sand castle
-- [ ] 4.33. The bubble worlds, as seen from the *Twister* as Carl and Donut return from the Embrass/Quan situation
+- [x] 4.33. The bubble worlds, as seen from the *Twister* as Carl and Donut return from the Embrass/Quan situation
 - [ ] 4.33. Playing frogger in the communal space 
 
 ### Carl's gear
