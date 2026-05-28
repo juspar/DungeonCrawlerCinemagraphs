@@ -18,7 +18,7 @@
     
     <div class="scene-container">
         <!-- Static deep background elements -->
-        <img src="../Images/scene_1_28/DCC_1_28_base.webp" class="layer outside ocean-pitch ripple-effect" alt="Outside Moon Ocean">
+        <img src="../Images/scene_1_28/DCC_1_28_base.webp" class="layer outside ocean-pitch ripple-effect parallax-static" alt="Outside Moon Ocean">
         
         <!-- Camera effected layers -->
         <div class="parallax-camera boat-camera">
@@ -26,14 +26,14 @@
 
             <img src="../Images/scene_1_28/DCC_1_28_midground.webp" class="layer midground-28 parallax-mid" style="z-index: 40;" alt="Midground">
 
-            <canvas id="sparkle-canvas" class="layer sparkle-layer" style="z-index: 75;" data-origin-x="0.605" data-origin-y="0.16"></canvas>
+            <canvas id="sparkle-canvas" class="layer sparkle-layer parallax-fg" style="z-index: 75;" data-origin-x="0.605" data-origin-y="0.16"></canvas>
 
             <img src="../Images/scene_1_28/DCC_1_28_lexis.webp"
-                 class="layer lexis breathe"
+                 class="layer lexis breathe parallax-fg"
                  style="z-index: 70; --breathe-duration: 7s; --breathe-delay: -3s;"
                  alt="Lexis">
             <img src="../Images/scene_1_28/DCC_1_28_carl.webp"
-                 class="layer carl breathe"
+                 class="layer carl breathe parallax-fg"
                  style="z-index: 80;"
                  alt="Carl">
         </div>

@@ -18,11 +18,11 @@
     
     <div class="scene-container">
         <!-- Static deep background elements -->
-        <img src="../Images/scene_1_1/DCC_1_1_sky.webp" class="layer sky" alt="Sky">
+        <img src="../Images/scene_1_1/DCC_1_1_sky.webp" class="layer sky parallax-static" alt="Sky">
 
-        <canvas id="stars-canvas" class="layer stars" data-star-count="550"></canvas>
+        <canvas id="stars-canvas" class="layer stars parallax-static" data-star-count="550"></canvas>
 
-        <img src="../Images/scene_1_1/DCC_1_1_sea.webp" class="layer sea" style="z-index: 10;" alt="Sea">
+        <img src="../Images/scene_1_1/DCC_1_1_sea.webp" class="layer sea parallax-static" style="z-index: 10;" alt="Sea">
 
         <!-- Camera effected layers -->
         <div class="parallax-camera">
@@ -39,11 +39,11 @@
                      alt="Light">
             </div>
 
-            <img src="../Images/scene_1_1/DCC_1_1_foreground.webp" class="layer foreground" alt="Foreground">
+            <img src="../Images/scene_1_1/DCC_1_1_foreground.webp" class="layer foreground parallax-fg" alt="Foreground">
 
-            <img src="../Images/scene_1_1/DCC_1_1_carl.webp" class="layer subject breathe" style="z-index: 80;" alt="Carl">
+            <img src="../Images/scene_1_1/DCC_1_1_carl.webp" class="layer subject breathe parallax-fg" style="z-index: 80;" alt="Carl">
 
-            <canvas id="snow-canvas" class="layer snow" style="z-index: 100;"></canvas>
+            <canvas id="snow-canvas" class="layer snow parallax-fg" style="z-index: 100;"></canvas>
         </div>
     </div>
 

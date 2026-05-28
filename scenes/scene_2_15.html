@@ -18,36 +18,36 @@
     
     <div class="scene-container">
         <!-- Static deep background elements -->
-        <img src="../Images/scene_2_15/DCC_2_15_base.webp" class="layer base" alt="Base">
+        <img src="../Images/scene_2_15/DCC_2_15_base.webp" class="layer base parallax-static" alt="Base">
 
         <!-- Camera effected layers -->
         <div class="parallax-camera">
-            <img src="../Images/scene_2_15/DCC_2_15_background.webp" class="layer background" alt="Background">
+            <img src="../Images/scene_2_15/DCC_2_15_background.webp" class="layer background parallax-fg" alt="Background">
 
-            <img src="../Images/scene_2_15/DCC_2_15_signs_low.webp" class="layer signs-low" style="z-index: 22" alt="Signs Low">
+            <img src="../Images/scene_2_15/DCC_2_15_signs_low.webp" class="layer signs-low parallax-fg" style="z-index: 22" alt="Signs Low">
             <img src="../Images/scene_2_15/DCC_2_15_signs_high.webp"
-                 class="layer signs-high pulse"
+                 class="layer signs-high pulse parallax-fg"
                  style="z-index: 24; --pulse-duration: 5s; --pulse-delay: 0s;"
                  alt="Signs High">
 
             <!-- Dancers -->
-            <img src="../Images/scene_2_15/DCC_2_15_dancers1.webp" class="layer dancers-1" style="z-index: 30;" alt="Dancers 1">
-            <img src="../Images/scene_2_15/DCC_2_15_dancers2.webp" class="layer dancers-2" style="z-index: 31;" alt="Dancers 2">
-            <img src="../Images/scene_2_15/DCC_2_15_dancers3.webp" class="layer dancers-3" style="z-index: 32;" alt="Dancers 3">
+            <img src="../Images/scene_2_15/DCC_2_15_dancers1.webp" class="layer dancers-1 parallax-fg" style="z-index: 30;" alt="Dancers 1">
+            <img src="../Images/scene_2_15/DCC_2_15_dancers2.webp" class="layer dancers-2 parallax-fg" style="z-index: 31;" alt="Dancers 2">
+            <img src="../Images/scene_2_15/DCC_2_15_dancers3.webp" class="layer dancers-3 parallax-fg" style="z-index: 32;" alt="Dancers 3">
             
-            <img src="../Images/scene_2_15/DCC_2_15_midground.webp" class="layer midground" alt="Midground">
+            <img src="../Images/scene_2_15/DCC_2_15_midground.webp" class="layer midground parallax-fg" alt="Midground">
 
-            <img src="../Images/scene_2_15/DCC_2_15_carl.webp" class="layer carl breathe"
+            <img src="../Images/scene_2_15/DCC_2_15_carl.webp" class="layer carl breathe parallax-fg"
                  style="z-index: 45; --breathe-duration: 8s; --breathe-delay: -0s;"
                  alt="Carl"> 
 
-            <img src="../Images/scene_2_15/DCC_2_15_foreground.webp" class="layer foreground" alt="Foreground">
+            <img src="../Images/scene_2_15/DCC_2_15_foreground.webp" class="layer foreground parallax-fg" alt="Foreground">
 
-            <img src="../Images/scene_2_15/DCC_2_15_donut.webp" class="layer donut breathe"
+            <img src="../Images/scene_2_15/DCC_2_15_donut.webp" class="layer donut breathe parallax-fg"
                  style="z-index: 90; --breathe-duration: 5s; --breathe-delay: -2s;"
                  alt="Donut"> 
 
-            <canvas id="disco-canvas" class="layer disco-layer" style="z-index: 105;"></canvas>
+            <canvas id="disco-canvas" class="layer disco-layer parallax-fg" style="z-index: 105;"></canvas>
 
         </div>
     </div>

@@ -204,3 +204,17 @@
 .scroll-segment.mirrored {
     transform: scaleX(-1);
 }
+
+/* 
+   Semantic Classes for 100% Explicit Grouping
+*/
+
+/* Static elements located outside the camera container (0% movement) */
+.parallax-static {
+    /* Semantic placeholder */
+}
+
+/* Foreground elements moving at 100% camera speed (2.0% movement) */
+.parallax-fg {
+    /* Semantic placeholder */
+}
