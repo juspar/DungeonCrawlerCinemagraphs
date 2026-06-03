@@ -166,6 +166,19 @@
     animation-delay: var(--breathe-delay, 0s);
 }
 
+/* Coordinated floating animation for grouped layers */
+@keyframes float-coord {
+    0%, 100% { transform: translateX(0) translateY(0) translateZ(0); }
+    25% { transform: translateX(1%) translateY(-1.5%) translateZ(0); }
+    50% { transform: translateX(1.5%) translateY(1%) translateZ(0); }
+    75% { transform: translateX(-1%) translateY(1.5%) translateZ(0); }
+}
+
+.float-container {
+    animation: float-coord var(--float-duration, 18s) ease-in-out infinite;
+    transform-origin: center center;
+}
+
 /* Twinkling Stars layer sits between sky and foreground layers */
 .stars {
     pointer-events: none;

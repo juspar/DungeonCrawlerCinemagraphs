@@ -49,6 +49,7 @@
             </canvas>
             <img src="../Images/scene_4_33/DCC_4_33_background.webp" class="layer background parallax-bg" alt="Background">    
             
+           
             <canvas class="layer sparkle parallax-mid" 
                     style="z-index: 38;" 
                     data-origin-x="0.76" 
@@ -66,20 +67,20 @@
                     data-depth="0.99"
                     data-spawn-rate="0.01">
             </canvas>
-
             <img src="../Images/scene_4_33/DCC_4_33_midground.webp" class="layer midground parallax-mid" alt="Midground">
-            <img src="../Images/scene_4_33/DCC_4_33_foreground.webp" class="layer foreground parallax-fg" alt="Foreground">
-            
 
-            <img src="../Images/scene_4_33/DCC_4_33_carl.webp"
-                 class="layer carl breathe parallax-fg"
-                 style="z-index: 80; --breathe-duration: 8s; --breathe-delay: -0s;"
-                 alt="Carl">
-                 
-            <img src="../Images/scene_4_33/DCC_4_33_donut.webp"
-                 class="layer donut breathe parallax-fg"
-                 style="z-index: 81; --breathe-duration: 5s; --breathe-delay: -2s;"
-                 alt="Donut">
+
+            <div class="layer float-container parallax-fg" style="z-index: 60;">
+                <img src="../Images/scene_4_33/DCC_4_33_foreground.webp" class="layer foreground" alt="Foreground">         
+                <img src="../Images/scene_4_33/DCC_4_33_carl.webp"
+                     class="layer carl breathe"
+                     style="z-index: 80; --breathe-duration: 8s; --breathe-delay: -0s;"
+                     alt="Carl">                 
+                <img src="../Images/scene_4_33/DCC_4_33_donut.webp"
+                     class="layer donut breathe"
+                     style="z-index: 81; --breathe-duration: 5s; --breathe-delay: -2s;"
+                     alt="Donut">
+            </div>
         </div>
     </div>
 
