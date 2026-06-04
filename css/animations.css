@@ -231,3 +231,30 @@
 .parallax-fg {
     /* Semantic placeholder */
 }
+
+/* Infinite Vertical Scrolling Background */
+@keyframes infinite-scroll-vertical {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200vh); }
+}
+
+.scrolling-bg-container-vertical {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 300vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+    animation-name: infinite-scroll-vertical;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: var(--scroll-speed, 40s);
+    animation-direction: var(--scroll-direction, normal);
+    will-change: transform;
+}
+
+.scroll-segment.mirrored-vertical {
+    transform: scaleY(-1);
+}

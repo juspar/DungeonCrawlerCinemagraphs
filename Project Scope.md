@@ -7,7 +7,7 @@ To develop a lightweight, code-driven digital display application that provides 
 ### 2. Technical Architecture
 
 - **Visual Style**: Minimalist, multi-layered papercraft/vector illustration.
-- **Animation Method**: Code-driven 2D manipulation (HTML5 Canvas/JavaScript) utilizing separated transparent PNG layers. This ensures zero compression artifacts, flawless infinite loops, and hardware-efficient rendering for long reading sessions.
+- **Animation Method**: Code-driven 2D manipulation (HTML5 Canvas/JavaScript) utilizing separated transparent WebP layers. This ensures zero compression artifacts, flawless infinite loops, and hardware-efficient rendering for long reading sessions.
 - **Content Volume**: 2 to 4 distinct ambient scenes per book in the series.
 
 ### 3. Core Features
@@ -27,7 +27,7 @@ The image must be designed to be ignored. It is not a comic book panel or a movi
 
 DCC is chaotic, loud, and incredibly violent. Your art must represent the exact opposite: the interstitial spaces.
 
-- **Focus on**: The aftermath, the preparation, the long walks between stairs, the eerie silence of a newly revealed floor, or the temporary relief of a Safe Room.
+- **Focus on**: The aftermath, the preparation, the long walks, the eerie silence of a newly revealed floor, or the temporary relief of a Safe Room.
 - **Avoid**: Mid-swing action, exploding mobs, or active dialogue framing.
 
 ### 3. Rules of Motion (Ambient Presence)

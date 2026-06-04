@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 5 Chapter 17</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/scene_5_17/DCC_5_17_sky.webp" class="layer sky parallax-static" alt="Sky">
+        <canvas id="stars-canvas" class="layer stars parallax-static" data-star-count="1200" style="z-index: 6;"></canvas>
+
+        <!-- Earth Composite -->
+        <div class="layer earth-composite parallax-static" style="z-index: 20;">
+            <img src="../Images/scene_5_17/DCC_5_17_earth_base.webp" class="layer" style="z-index: 20;" alt="Earth Base">
+            <!-- Prod: <div class="layer cloud-mask" style="z-index: 21; -webkit-mask-image: url('../Images/scene_5_17/DCC_5_17_earth_base.webp'); mask-image: url('../Images/scene_5_17/DCC_5_17_earth_base.webp'); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;"> -->
+            <!-- Dev: <div class="layer cloud-mask" style="z-index: 21;"> -->
+            <div class="layer cloud-mask" style="z-index: 21; -webkit-mask-image: url('../Images/scene_5_17/DCC_5_17_earth_base.webp'); mask-image: url('../Images/scene_5_17/DCC_5_17_earth_base.webp'); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;">
+                <div class="scrolling-bg-container-vertical" style="--scroll-speed: 320s; --scroll-direction: reverse;">
+                    <img src="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" class="scroll-segment" alt="Clouds">
+                    <img src="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" class="scroll-segment mirrored-vertical" alt="Clouds">
+                    <img src="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" class="scroll-segment" alt="Clouds">
+                </div>
+            </div>
+            <img src="../Images/scene_5_17/DCC_5_17_earth_shadow_overlay.webp" class="layer" style="z-index: 22;" alt="Earth Shadow">
+            <img src="../Images/scene_5_17/DCC_5_17_earth_glow.webp" class="layer" style="z-index: 19;" alt="Earth Glow">
+        </div>
+
+        <!-- Foreground & Characters -->
+        <div class="layer parallax-static" style="z-index: 60;">
+            <img src="../Images/scene_5_17/DCC_5_17_foreground.webp" class="layer foreground" style="z-index: 61;" alt="Foreground">
+            <img src="../Images/scene_5_17/DCC_5_17_carl.webp" class="layer float-container" style="z-index: 80; --float-duration: 40s; animation-delay: -5s;" alt="Carl">
+            <img src="../Images/scene_5_17/DCC_5_17_donut.webp" class="layer float-container" style="z-index: 82; --float-duration: 30s; animation-delay: -0s;" alt="Donut">
+        </div>
+        
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/stars.js"></script>
+
+</body>
+</html>

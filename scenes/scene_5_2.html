@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 5 Chapter 2</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/scene_5_2/DCC_5_2_sky.webp" class="layer sky parallax-static" alt="Sky">
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <img src="../Images/scene_5_2/DCC_5_2_background.webp" class="layer background parallax-bg" alt="Background">
+            <img src="../Images/scene_5_2/DCC_5_2_midground.webp" class="layer midground parallax-mid" alt="Midground">
+            <canvas id="dust-canvas" class="layer dust parallax-mid"
+                    style="z-index: 45;"
+                    data-spot-color="255,255,255">
+            </canvas>
+            <img src="../Images/scene_5_2/DCC_5_2_foreground.webp" class="layer foreground parallax-fg" alt="Foreground">
+            <img src="../Images/scene_5_2/DCC_5_2_loo.webp" style="z-index: 61;" class="layer loo parallax-fg" alt="Loo">
+            <img src="../Images/scene_5_2/DCC_5_2_carl.webp"
+                class="layer carl breathe parallax-fg"
+                style="z-index: 80; --breathe-duration: 8s; --breathe-delay: -0s;"
+                alt="Carl"> 
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/dust.js"></script>
+
+</body>
+</html>

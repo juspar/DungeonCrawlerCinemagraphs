@@ -229,6 +229,18 @@ body {
     background-image: url('../Images/scene_4_33/DCC_4_33_thumbnail.webp');
 }
 
+.scene-5-25 {
+    background-image: url('../Images/scene_5_25/DCC_5_25_thumbnail.webp');
+}
+
+.scene-5-2 {
+    background-image: url('../Images/scene_5_2/DCC_5_2_thumbnail.webp');
+}
+
+.scene-5-17 {
+    background-image: url('../Images/scene_5_17/DCC_5_17_thumbnail.webp');
+}   
+
 /* --- SPOTIFY PLAYER --- */
 .spotify-bar {
     width: 100%;

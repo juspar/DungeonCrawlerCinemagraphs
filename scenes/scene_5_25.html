@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 5 Chapter 1</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/scene_5_25/DCC_5_25_sky.webp" class="layer sky parallax-static" alt="Sky">
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <img src="../Images/scene_5_25/DCC_5_25_background.webp" class="layer background parallax-bg" style="z-index: 45;" alt="Background">
+
+            <img src="../Images/scene_5_25/DCC_5_25_midground.webp" class="layer midground parallax-mid" alt="Midground"> 
+            <canvas id="sand-sparkle-canvas" 
+                class="layer sand-sparkle parallax-mid" 
+                style="z-index: 41;"
+                data-sparkle-count="400"
+                data-color="240, 240, 240"
+                data-y-min="0.25"
+                data-y-max="1.0">
+        </canvas>           
+            <img src="../Images/scene_5_25/DCC_5_25_castle.webp" class="layer castle parallax-mid" style="z-index: 50;" alt="Fort Freedom">
+            <img src="../Images/scene_5_25/DCC_5_25_window_low.webp" class="layer window_low parallax-mid" style="z-index: 55;" alt="window_low">
+            <div class="layer parallax-mid" style="z-index: 56;">
+                <img src="../Images/scene_5_25/DCC_5_25_window_high.webp"
+                     class="layer window-high pulse"
+                     style="--pulse-duration: 10s; --pulse-delay: 0s;"
+                     alt="Window High">
+            </div>
+
+            <img src="../Images/scene_5_25/DCC_5_25_foreground.webp" class="layer foreground parallax-fg" alt="Foreground">
+            <img src="../Images/scene_5_25/DCC_5_25_carl.webp"
+                class="layer carl breathe parallax-fg"
+                style="z-index: 80; --breathe-duration: 8s; --breathe-delay: -0s;"
+                alt="Carl"> 
+            <img src="../Images/scene_5_25/DCC_5_25_mongo.webp"
+                 class="layer mongo bob parallax-fg"
+                 style="z-index: 82; --bob-duration: 4s;"
+                 alt="Mongo">"> 
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+        <script src="../js/sand_sparkle.js"></script>
+</body>
+</html>
