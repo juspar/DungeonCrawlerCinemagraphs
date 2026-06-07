@@ -50,11 +50,11 @@
 }
 
 @keyframes slow-pan {
-    0%, 100% { transform: scale(1.04) translateX(-1%) translateZ(0); }
-    50% { transform: scale(1.04) translateX(1%) translateZ(0); }
+    0%, 100% { transform: scale(1.06) translateX(-2%) translateZ(0); }
+    50% { transform: scale(1.06) translateX(2%) translateZ(0); }
 }
 .parallax-camera {
-    animation: slow-pan 30s ease-in-out infinite;
+    animation: slow-pan 90s ease-in-out infinite;
 }
 
 /* Boat Scene Animations */
@@ -99,25 +99,25 @@
 
 /* Custom Parallax to slow down background layers relative to the camera pan */
 @keyframes parallax-slow {
-    0%, 100% { transform: scale(1.06) translateX(0.8%) translateZ(0); }
-    50% { transform: scale(1.06) translateX(-0.8%) translateZ(0); }
+    0%, 100% { transform: scale(1.06) translateX(1.6%) translateZ(0); }
+    50% { transform: scale(1.06) translateX(-1.6%) translateZ(0); }
 }
 .parallax-bg {
-    animation: parallax-slow 30s ease-in-out infinite;
+    animation: parallax-slow 90s ease-in-out infinite;
 }
 
 /* Mid-speed parallax for midground layers (guards, etc.).
    Moves faster than .parallax-bg but slower than elements that ride the raw camera. */
 @keyframes parallax-mid {
-    0%, 100% { transform: scale(1.05) translateX(0.4%) translateZ(0); }
-    50% { transform: scale(1.05) translateX(-0.4%) translateZ(0); }
+    0%, 100% { transform: scale(1.06) translateX(0.8%) translateZ(0); }
+    50% { transform: scale(1.06) translateX(-0.8%) translateZ(0); }
 }
 .parallax-mid {
-    animation: parallax-mid 30s ease-in-out infinite;
+    animation: parallax-mid 90s ease-in-out infinite;
 }
 
 .parallax-mg {
-    animation: parallax-mid 30s ease-in-out infinite;
+    animation: parallax-mid 90s ease-in-out infinite;
 }
 
 /* Book 2, Scene 15 Dancers */
