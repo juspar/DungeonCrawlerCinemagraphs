@@ -8,6 +8,7 @@
 - [x] 4. Investigate our paralax application. I feel like the deep layers might be moving more, not less, than the foreground layers. It feels like the background is moving, not the camera is moving and perspective is changing.
 - [x] 5. Restructure all the images into scene folders
 - [x] 6. Make the _Twister_ 'float' around
+- [x] 7. Animate the earth from space.
 
 ## Art
 
@@ -17,8 +18,8 @@
 - [x] 4.33. The bubble worlds, as seen from the _Twister_ as Carl and Donut return from the Embrass/Quan situation
 - [ ] 4.33. Playing frogger in the communal space
 - [x] 5.2. Selva the starting village
-- [ ] 5.??. The earth from space
-- [ ] 5.??. Fort Freedom
+- [x] 5.17. The earth from space
+- [x] 5.25. Fort Freedom
 
 ### Carl's gear
 

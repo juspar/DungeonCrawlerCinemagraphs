@@ -239,7 +239,11 @@ body {
 
 .scene-5-17 {
     background-image: url('../Images/scene_5_17/DCC_5_17_thumbnail.webp');
-}   
+}
+
+.scene-5-65 {
+    background-image: url('../Images/scene_5_65/DCC_5_65_thumbnail.webp');
+}
 
 /* --- SPOTIFY PLAYER --- */
 .spotify-bar {
