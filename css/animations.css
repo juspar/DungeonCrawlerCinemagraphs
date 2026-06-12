@@ -258,3 +258,88 @@
 .scroll-segment.mirrored-vertical {
     transform: scaleY(-1);
 }
+
+/* Slow Camera Push-In / Pull-Out Zoom (Exactly Centered) */
+@keyframes slow-push-zoom {
+    0%, 100% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(4.5); /* Push in close to the centered characters */
+    }
+}
+
+.parallax-camera-zoom {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    z-index: 11;
+    transform-origin: center center;
+    animation: slow-push-zoom 180s ease-in-out infinite;
+}
+
+/* Glass window reflection fades out as camera zooms close, and fades back in as it pulls out */
+@keyframes glass-reflection-fade {
+    0%, 100% {
+        opacity: 0.85;
+    }
+    50% {
+        opacity: 0.15;
+    }
+}
+
+.glass-reflection-zoom {
+    animation: glass-reflection-fade 180s ease-in-out infinite;
+}
+
+/* Baseline scale for characters designed at "full zoom" (huge) so they fit the monolith window at start */
+.zoom-fit-characters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    transform: scale(0.2222); /* 1 / 4.5 zoom correction factor */
+    pointer-events: none;
+    z-index: 30;
+}
+
+/* Direct Background Zoom for Push-In Scenes
+   Background lives OUTSIDE the camera container, so this transform is applied directly
+   with no parent scale compounding. What you see here is exactly what you get on screen. */
+@keyframes zoom-bg-direct {
+    0%, 100% {
+        transform: scale(1.06) translateX(1.6%) translateZ(0);
+    }
+    50% {
+        transform: scale(1.2) translateX(-1.6%) translateZ(0);
+    }
+}
+
+.zoom-bg-direct {
+    animation: zoom-bg-direct 180s ease-in-out infinite;
+}
+
+
+/* Ambient window glow pulsing animation */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.65;
+        transform: translate(-50%, -50%) scale(1.0);
+    }
+    50% {
+        opacity: 1.0;
+        transform: translate(-50%, -50%) scale(1.25);
+    }
+}
+
+.pulse-glow {
+    animation: pulse-glow var(--glow-duration, 5s) ease-in-out infinite;
+    animation-delay: var(--glow-delay, 0s);
+}
+
+
+
