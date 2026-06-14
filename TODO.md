@@ -11,9 +11,9 @@
 - [x] 7. Animate the earth from space.
 - [x] 8. Add a zoom animation
 - [x] 9. Add a glow physics engine
-- [ ] 10. Add buttons to the player for previous and next chapter scenes
-- [ ] 11. Remove ad stubs from mobile
-- [ ] 12. Add multiple gate glows to scene 5_e. But how many is too many? One for each ball is too many, in that case, how many is too few?
+- [x] 10. Add buttons to the player for previous and next chapter scenes
+- [x] 11. Remove ad stubs from mobile
+- [x] 12. Add multiple gate glows to scene 5_e. But how many is too many? One for each ball is too many, in that case, how many is too few?
 
 ## Art
 
