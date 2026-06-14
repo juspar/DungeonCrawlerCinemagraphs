@@ -404,3 +404,11 @@ body {
     font-size: 12px;
     font-weight: bold;
 }
+
+/* Hide ad banners on mobile screens */
+@media (max-width: 768px) {
+    .ad-banner-bottom,
+    .ad-banner-side {
+        display: none !important;
+    }
+}

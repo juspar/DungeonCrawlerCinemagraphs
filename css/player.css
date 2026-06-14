@@ -112,3 +112,65 @@ body {
     border-right: none;
     border-radius: 4px 0 0 4px;
 }
+
+/* Navigation Buttons style */
+.nav-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    outline: none;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: #ffca28;
+    color: #ffca28;
+    box-shadow: 0 0 15px rgba(255, 202, 40, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+#prev-btn {
+    left: 180px;
+}
+
+#next-btn {
+    right: 180px;
+}
+
+/* Hide player ad stubs and expand the cinemagraph iframe on mobile */
+@media (max-width: 768px) {
+    .player-ad-side {
+        display: none !important;
+    }
+    .scene-frame {
+        left: 0;
+        width: 100vw;
+    }
+    #prev-btn {
+        left: 20px;
+    }
+    #next-btn {
+        right: 20px;
+    }
+}
