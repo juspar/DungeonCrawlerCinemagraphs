@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
-    // Global sequence of all 17 chapter scenes for sequential navigation in single scene mode
+    // Global sequence of all 18 chapter scenes for sequential navigation in single scene mode
     const globalScenes = [
         "scenes/scene_1_1.html",
         "scenes/scene_1_3.html",
@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "scenes/scene_5_2.html",
         "scenes/scene_5_17.html",
         "scenes/scene_5_25.html",
-        "scenes/scene_5_65.html"
+        "scenes/scene_5_65.html",
+        "scenes/scene_5_e.html"
     ];
     
     // Load playlist from URL parameters
