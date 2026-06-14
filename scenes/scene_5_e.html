@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 5 Epilogue</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+
+        <!-- Background: Sibling of the camera, NOT inside it. Has its own direct zoom animation
+             so its scale isn't compounded with the camera's. -->
+        <img src="../Images/scene_5_e/DCC_5_e_background.webp" class="layer background zoom-bg-direct" style="z-index: 11;" alt="Background">
+
+        <div class="parallax-camera-zoom">
+
+            <div class="gate-glow hero-glow pulse-glow" style="z-index: 25; left: 50%; top: 50%; --glow-duration: 5s;"></div>
+            
+            <div class="zoom-fit-characters">
+                <img src="../Images/scene_5_e/DCC_5_e_pony.webp" 
+                     class="layer breathe" 
+                     style="z-index: 30; transform-origin: center center; --breathe-duration: 6.5s; --breathe-delay: -1s;" 
+                     alt="Pony">
+                
+                <img src="../Images/scene_5_e/DCC_5_e_donut.webp" 
+                     class="layer breathe" 
+                     style="z-index: 31; transform-origin: center center; --breathe-duration: 5s; --breathe-delay: -2s;" 
+                     alt="Donut">
+                
+                <img src="../Images/scene_5_e/DCC_5_e_carl.webp" 
+                     class="layer breathe" 
+                     style="z-index: 32; transform-origin: center center; --breathe-duration: 8s; --breathe-delay: 0s;" 
+                     alt="Carl">
+            </div>
+
+            <img src="../Images/scene_5_e/DCC_5_e_midground.webp" class="layer midground" alt="Monolith Structure">
+            
+            <img src="../Images/scene_5_e/DCC_5_e_midground_reflection.webp" 
+                 class="layer glass-reflection-zoom" 
+                 style="z-index: 45;" 
+                 alt="Glass Reflection">
+         
+        </div>
+    </div>
+</body>
+</html>

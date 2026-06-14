@@ -9,6 +9,11 @@
 - [x] 5. Restructure all the images into scene folders
 - [x] 6. Make the _Twister_ 'float' around
 - [x] 7. Animate the earth from space.
+- [x] 8. Add a zoom animation
+- [x] 9. Add a glow physics engine
+- [ ] 10. Add buttons to the player for previous and next chapter scenes
+- [ ] 11. Remove ad stubs from mobile
+- [ ] 12. Add multiple gate glows to scene 5_e. But how many is too many? One for each ball is too many, in that case, how many is too few?
 
 ## Art
 
@@ -17,9 +22,11 @@
 - [x] 4.20. On the beach at the sand castle
 - [x] 4.33. The bubble worlds, as seen from the _Twister_ as Carl and Donut return from the Embrass/Quan situation
 - [ ] 4.33. Playing frogger in the communal space
-- [x] 5.2. Selva the starting village
+- [x] 5.2. Selva, the starting village
 - [x] 5.17. The earth from space
 - [x] 5.25. Fort Freedom
+- [ ] 6.2. El Capitol
+- [ ] 6.10. Colon Cemetary
 
 ### Carl's gear
 
@@ -33,6 +40,7 @@
 - Xsteria 2_6
 - Sleeveless black canvas jacket 4_27
 - Black bandana with white paisley printing, tied around head 4_27
+- Buckler bracer (left) 6_2
 
 ### Donut's gear
 
