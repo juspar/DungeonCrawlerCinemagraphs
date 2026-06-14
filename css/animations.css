@@ -259,6 +259,17 @@
     transform: scaleY(-1);
 }
 
+/* SVG Infinite Vertical Scrolling Background */
+@keyframes infinite-scroll-vertical-svg {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(3072px); }
+}
+
+.scrolling-bg-container-vertical-svg {
+    animation: infinite-scroll-vertical-svg var(--scroll-speed, 320s) linear infinite;
+    will-change: transform;
+}
+
 /* Slow Camera Push-In / Pull-Out Zoom (Exactly Centered) */
 @keyframes slow-push-zoom {
     0%, 100% {

@@ -24,15 +24,28 @@
         <!-- Earth Composite -->
         <div class="layer earth-composite parallax-static" style="z-index: 20;">
             <img src="../Images/scene_5_17/DCC_5_17_earth_base.webp" class="layer" style="z-index: 20;" alt="Earth Base">
-            <!-- Prod: <div class="layer cloud-mask" style="z-index: 21; -webkit-mask-image: url('../Images/scene_5_17/DCC_5_17_earth_base.webp'); mask-image: url('../Images/scene_5_17/DCC_5_17_earth_base.webp'); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;"> -->
-            <!-- Dev: <div class="layer cloud-mask" style="z-index: 21;"> -->
-            <div class="layer cloud-mask" style="z-index: 21; -webkit-mask-image: url('../Images/scene_5_17/DCC_5_17_earth_base.webp'); mask-image: url('../Images/scene_5_17/DCC_5_17_earth_base.webp'); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;">
-                <div class="scrolling-bg-container-vertical" style="--scroll-speed: 320s; --scroll-direction: reverse;">
-                    <img src="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" class="scroll-segment" alt="Clouds">
-                    <img src="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" class="scroll-segment mirrored-vertical" alt="Clouds">
-                    <img src="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" class="scroll-segment" alt="Clouds">
-                </div>
-            </div>
+            
+            <!-- Inline SVG Mask to prevent local file CORS block on mask-image when loaded via file:// protocol -->
+            <svg viewBox="0 0 2752 1536" class="layer" style="z-index: 21;">
+                <defs>
+                    <mask id="earth-mask">
+                        <!-- Opaque white circle matching the Earth sphere exactly (center: 1605, 941, radius: 578) -->
+                        <circle cx="1605" cy="941" r="578" fill="white" />
+                    </mask>
+                </defs>
+                
+                <!-- Masked scrolling cloud layer -->
+                <g mask="url(#earth-mask)">
+                    <g class="scrolling-bg-container-vertical-svg" style="--scroll-speed: 320s;">
+                        <!-- Segment 1 (Top) -->
+                        <image href="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" x="0" y="-3072" width="2752" height="1536" />
+                        <!-- Segment 2 (Middle, Mirrored) -->
+                        <image href="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" x="0" y="0" width="2752" height="1536" transform="translate(0, -1536) scale(1, -1)" />
+                        <!-- Segment 3 (Bottom) -->
+                        <image href="../Images/scene_5_17/DCC_5_17_earth_clouds.webp" x="0" y="0" width="2752" height="1536" />
+                    </g>
+                </g>
+            </svg>
             <img src="../Images/scene_5_17/DCC_5_17_earth_shadow_overlay.webp" class="layer" style="z-index: 22;" alt="Earth Shadow">
             <img src="../Images/scene_5_17/DCC_5_17_earth_glow.webp" class="layer" style="z-index: 19;" alt="Earth Glow">
         </div>
