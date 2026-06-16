@@ -249,6 +249,14 @@ body {
     background-image: url('../Images/scene_5_e/DCC_5_e_thumbnail.webp');
 }
 
+.scene-6-2 {
+    background-image: url('../Images/scene_6_2/DCC_6_2_thumbnail.webp');
+}
+
+.scene-6-10 {
+    background-image: url('../Images/scene_6_10/DCC_6_10_thumbnail.webp');
+}
+
 /* --- SPOTIFY PLAYER --- */
 .spotify-bar {
     width: 100%;
@@ -409,8 +417,8 @@ body {
     font-weight: bold;
 }
 
-/* Hide ad banners on mobile screens */
-@media (max-width: 768px) {
+/* Hide ad banners on mobile screens (both portrait and landscape) */
+@media (max-width: 992px), (max-height: 600px) {
     .ad-banner-bottom,
     .ad-banner-side {
         display: none !important;

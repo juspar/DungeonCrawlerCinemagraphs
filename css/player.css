@@ -158,14 +158,16 @@ body {
     right: 180px;
 }
 
-/* Hide player ad stubs and expand the cinemagraph iframe on mobile */
-@media (max-width: 768px) {
+/* Hide player ad stubs and expand the cinemagraph iframe on mobile (both portrait and landscape) */
+@media (max-width: 992px), (max-height: 600px) {
     .player-ad-side {
         display: none !important;
     }
     .scene-frame {
+        top: 0;
         left: 0;
         width: 100vw;
+        height: calc(100vh - 80px);
     }
     #prev-btn {
         left: 20px;

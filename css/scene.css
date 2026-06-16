@@ -48,6 +48,7 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;
+    container-type: size;
 }
 
 /* 

@@ -218,6 +218,58 @@
     transform: scaleX(-1);
 }
 
+/* Infinite Horizontal Scrolling Track for Ultrawide Images */
+@keyframes scroll-r2l {
+    0% { transform: translateX(0) translateY(var(--vertical-offset, 0%)); }
+    100% { transform: translateX(-50%) translateY(var(--vertical-offset, 0%)); }
+}
+
+@keyframes scroll-l2r {
+    0% { transform: translateX(-50%) translateY(var(--vertical-offset, 0%)); }
+    100% { transform: translateX(0) translateY(var(--vertical-offset, 0%)); }
+}
+
+.scrolling-track-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    display: flex;
+    align-items: center; /* Centering the track vertically */
+    justify-content: flex-start;
+}
+
+.scrolling-track {
+    display: flex;
+    height: max(100cqh, 55.814cqw); /* Cover scale height of a 2752x1536 background image */
+    width: max-content;
+    will-change: transform;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.scrolling-track.scroll-r2l {
+    animation-name: scroll-r2l;
+    animation-duration: var(--scroll-speed, 120s);
+}
+
+.scrolling-track.scroll-l2r {
+    animation-name: scroll-l2r;
+    animation-duration: var(--scroll-speed, 120s);
+}
+
+.scrolling-track img {
+    display: block; /* Eliminate inline baseline gaps */
+    height: 100%;
+    width: auto;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+
 /* 
    Semantic Classes for 100% Explicit Grouping
 */

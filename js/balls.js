@@ -49,8 +49,8 @@ class BallpitSystem {
             // Random y between 0.52 and 0.66 of height (floor at 66%)
             const baseY = this.imgBounds.y + this.imgBounds.h * 0.52 + Math.random() * (this.imgBounds.h * 0.14);
             
-            // Radius responsive to screen width, all the same size (close to previous max)
-            const radius = Math.max(12, this.imgBounds.w * 0.008);
+            // Radius responsive to screen width, all the same size
+            const radius = Math.max(3, this.imgBounds.w * 0.008);
             
             // Color from scene using HSL
             const h = 230;

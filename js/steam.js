@@ -23,6 +23,8 @@ class SteamSystem {
         const d = this.canvas.dataset;
         this.cfg = {
             originX:    d.originX    !== undefined ? parseFloat(d.originX)    : 1.0,
+            originXMin: d.originXMin !== undefined ? parseFloat(d.originXMin) : (d.originX !== undefined ? parseFloat(d.originX) : 1.0),
+            originXMax: d.originXMax !== undefined ? parseFloat(d.originXMax) : (d.originX !== undefined ? parseFloat(d.originX) : 1.0),
             originYMin: d.originYMin !== undefined ? parseFloat(d.originYMin) : 0.0,
             originYMax: d.originYMax !== undefined ? parseFloat(d.originYMax) : 0.5,
             velX:       d.velX       !== undefined ? parseFloat(d.velX)       : -0.05,
@@ -30,11 +32,42 @@ class SteamSystem {
             velY:       d.velY       !== undefined ? parseFloat(d.velY)       : -0.02,
             velYRand:   d.velYRand   !== undefined ? parseFloat(d.velYRand)   :  0.03,
             spawnRate:  d.spawnRate  !== undefined ? parseFloat(d.spawnRate)  : 0.1,
+            sizeMin:    d.sizeMin    !== undefined ? parseFloat(d.sizeMin)    : 0.05,
+            sizeMax:    d.sizeMax    !== undefined ? parseFloat(d.sizeMax)    : 0.10,
+            lifeMin:    d.lifeMin    !== undefined ? parseFloat(d.lifeMin)    : 4.0,
+            lifeMax:    d.lifeMax    !== undefined ? parseFloat(d.lifeMax)    : 7.0,
+            color:      d.color      !== undefined ? d.color                  : "230, 240, 255",
+            opacityMax: d.opacityMax !== undefined ? parseFloat(d.opacityMax) : 0.20,
+            prewarm:    d.prewarm    !== undefined ? parseFloat(d.prewarm)    : 0.0
         };
         this.spawnRate = this.cfg.spawnRate;
 
         this.resize();
         window.addEventListener('resize', () => this.resize());
+
+        // Pre-warm particle system if configured
+        if (this.cfg.prewarm > 0) {
+            const step = 0.1; // simulate in 100ms chunks
+            const totalSteps = this.cfg.prewarm / step;
+            for (let s = 0; s < totalSteps; s++) {
+                this.spawnTimer += step;
+                while (this.spawnTimer >= this.spawnRate) {
+                    this.spawnParticle();
+                    this.spawnTimer -= this.spawnRate;
+                }
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    p.life += step;
+                    if (p.life >= p.maxLife) {
+                        this.particles.splice(i, 1);
+                        continue;
+                    }
+                    p.x += p.vx * step;
+                    p.y += p.vy * step;
+                    p.radius += (p.maxRadius - p.radius) * 0.5 * step;
+                }
+            }
+        }
         
         this.animate = this.animate.bind(this);
         requestAnimationFrame(this.animate);
@@ -73,17 +106,29 @@ class SteamSystem {
         const b = this.imgBounds;
         const c = this.cfg;
 
-        // Spawn X: fractional position. Values outside 0–1 start off-screen.
-        // Add a small pixel nudge (10px) so particles appear just beyond the edge.
-        const edgeNudge = c.originX >= 1 ? 10 : c.originX <= 0 ? -10 : 0;
-        const x = b.x + (b.w * c.originX) + edgeNudge;
+        // Spawn X: support range or single point
+        let x;
+        if (c.originXMin === c.originXMax) {
+            const edgeNudge = c.originXMin >= 1 ? 10 : c.originXMin <= 0 ? -10 : 0;
+            x = b.x + (b.w * c.originXMin) + edgeNudge;
+        } else {
+            const xMin = b.x + (b.w * c.originXMin);
+            const xMax = b.x + (b.w * c.originXMax);
+            x = xMin + Math.random() * (xMax - xMin);
+        }
 
         // Spawn Y: random point within the configured band
         const yMin = b.y + (b.h * c.originYMin);
         const yMax = b.y + (b.h * c.originYMax);
         const y = yMin + Math.random() * (yMax - yMin);
 
-        const radius = b.w * 0.05 + Math.random() * (b.w * 0.05);
+        // Size configuration (fraction of canvas width)
+        const sizeMin = b.w * c.sizeMin;
+        const sizeMax = b.w * c.sizeMax;
+        const radius = sizeMin + Math.random() * (sizeMax - sizeMin);
+
+        // Life range
+        const maxLife = c.lifeMin + Math.random() * (c.lifeMax - c.lifeMin);
 
         this.particles.push({
             x: x,
@@ -93,9 +138,9 @@ class SteamSystem {
             vx: b.w * (c.velX - Math.random() * c.velXRand),
             vy: b.h * (c.velY - Math.random() * c.velYRand),
             life: 0,
-            maxLife: 4 + Math.random() * 3, // 4–7 seconds
+            maxLife: maxLife,
             opacity: 0,
-            maxOpacity: 0.2 + Math.random() * 0.15
+            maxOpacity: c.opacityMax + Math.random() * (c.opacityMax * 0.75)
         });
     }
 
@@ -139,8 +184,8 @@ class SteamSystem {
 
             // Draw soft radial gradient puff
             const gradient = this.ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius);
-            gradient.addColorStop(0, `rgba(230, 240, 255, ${p.opacity})`);
-            gradient.addColorStop(1, `rgba(230, 240, 255, 0)`);
+            gradient.addColorStop(0, `rgba(${this.cfg.color}, ${p.opacity})`);
+            gradient.addColorStop(1, `rgba(${this.cfg.color}, 0)`);
 
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);

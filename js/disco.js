@@ -13,7 +13,7 @@ class DiscoSystem {
         window.addEventListener('resize', () => this.resize());
         
         // Generate light spots
-        for(let i=0; i<40; i++) {
+        for (let i = 0; i < 40; i++) {
             this.spawnLight();
         }
         
@@ -55,8 +55,8 @@ class DiscoSystem {
 
     spawnLight() {
         const angle = Math.random() * Math.PI * 2;
-        // Vary the orbit distance to simulate hits on walls and floor
-        const radius = this.imgBounds.w * (0.1 + Math.random() * 0.8); 
+        // Vary the orbit distance (fractional 0.1 to 0.9 of image bounds width)
+        const radiusPct = 0.1 + Math.random() * 0.8; 
         // Angular speed
         const speed = (0.2 + Math.random() * 0.5) * (Math.random() > 0.5 ? 1 : -1); 
         
@@ -67,10 +67,9 @@ class DiscoSystem {
         
         this.particles.push({
             angle: angle,
-            radiusX: radius,
-            radiusY: radius * 0.6, // Flatten orbit for 3D perspective
+            radiusPct: radiusPct,
             speed: speed,
-            size: 8 + Math.random() * 35, // Size of the light spot
+            baseSize: 8 + Math.random() * 35, // Size of the light spot (base on 1920px width)
             baseOpacity: 0.1 + Math.random() * 0.4,
             phase: Math.random() * Math.PI * 2, // For pulsing opacity
             colorStr: `${r}, ${g}, ${b}`
@@ -83,29 +82,36 @@ class DiscoSystem {
 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+        const scale = this.imgBounds.w / 1920;
+
         for (let i = 0; i < this.particles.length; i++) {
             const p = this.particles[i];
             
             p.angle += p.speed * deltaTime;
             p.phase += deltaTime * 1.5;
             
-            // Calculate screen position
-            const x = this.originX + Math.cos(p.angle) * p.radiusX;
-            const y = this.originY + Math.sin(p.angle) * p.radiusY;
+            // Calculate screen position dynamically based on current image bounds
+            const currentRadius = this.imgBounds.w * p.radiusPct;
+            const radiusX = currentRadius;
+            const radiusY = currentRadius * 0.6; // Flatten orbit for 3D perspective
+            const size = p.baseSize * scale;
+
+            const x = this.originX + Math.cos(p.angle) * radiusX;
+            const y = this.originY + Math.sin(p.angle) * radiusY;
             
             // Pulse opacity to simulate moving over textured surfaces
             const currentOpacity = p.baseOpacity * (0.3 + 0.7 * Math.sin(p.phase));
             
-            if (currentOpacity > 0) {
+            if (currentOpacity > 0 && size > 0.1) {
                 this.ctx.beginPath();
                 // Draw an elongated ellipse to simulate a light spot cast on a surface
-                this.ctx.ellipse(x, y, p.size, p.size * 0.4, p.angle, 0, Math.PI * 2);
+                this.ctx.ellipse(x, y, size, size * 0.4, p.angle, 0, Math.PI * 2);
                 
                 // Add a bright core and soft glow using the particle's purple color
                 this.ctx.fillStyle = `rgba(${p.colorStr}, ${currentOpacity})`;
                 this.ctx.fill();
                 
-                this.ctx.shadowBlur = 10;
+                this.ctx.shadowBlur = 10 * scale;
                 this.ctx.shadowColor = `rgba(${p.colorStr}, ${currentOpacity * 1.5})`;
                 this.ctx.fill();
             }

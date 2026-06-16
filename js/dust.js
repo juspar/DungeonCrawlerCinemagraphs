@@ -1,27 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('dust-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+class DustSystem {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.particles = [];
+        this.width = 0;
+        this.height = 0;
+        this.imgBounds = { x: 0, y: 0, w: 0, h: 0 };
+        this.currentGlowRadius = 0;
 
-    let width, height;
-    let particles = [];
-    let imgBounds = { x: 0, y: 0, w: 0, h: 0 };
+        const d = this.canvas.dataset;
+        this.spotXPercent = d.spotX ? parseFloat(d.spotX) : 0.5;
+        this.spotYPercent = d.spotY ? parseFloat(d.spotY) : 0.5;
+        this.spotColorRGB = d.spotColor || '240,240,240';
+        
+        this.enableGlow = d.enableGlow === "true";
+        this.baseGlowRadius = d.glowRadius ? parseFloat(d.glowRadius) : (this.enableGlow ? 300 : 0);
+        this.particleCount = 150;
 
-    // --- CONFIGURATION ---
-    const particleCount = 150;
-    
-    // Spot light coordinates — override via data-spot-x / data-spot-y (fractional 0–1)
-    const spotXPercent = canvas.dataset.spotX   ? parseFloat(canvas.dataset.spotX)   : 0.5;
-    const spotYPercent = canvas.dataset.spotY   ? parseFloat(canvas.dataset.spotY)   : 0.5;
-    
-    // Spot colour — override via data-spot-color="r,g,b" (e.g. "255,140,0" for orange)
-    const spotColorRGB = canvas.dataset.spotColor || '240,240,240'; // default light gray
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
 
-    // The radius around the spot where dust motes glow brightly
-    const enableGlow = canvas.dataset.enableGlow === "true";
-    const glowRadius = enableGlow ? 300 : 0; 
-    
-    function getCoverBounds(w, h) {
+        this.initParticles();
+        this.lastTime = 0;
+        this.animate = this.animate.bind(this);
+        requestAnimationFrame(this.animate);
+    }
+
+    getCoverBounds(w, h) {
         const imgAspect = 1920 / 1080;
         const canvasAspect = w / h;
         let drawW, drawH;
@@ -40,115 +45,112 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    function resize() {
-        width = canvas.clientWidth || window.innerWidth;
-        height = canvas.clientHeight || window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-        imgBounds = getCoverBounds(width, height);
+    resize() {
+        this.width = this.canvas.clientWidth || window.innerWidth;
+        this.height = this.canvas.clientHeight || window.innerHeight;
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+        this.imgBounds = this.getCoverBounds(this.width, this.height);
+        
+        // Scale the glow radius with the image bounds width relative to 1920
+        this.currentGlowRadius = this.baseGlowRadius * (this.imgBounds.w / 1920);
     }
 
-    window.addEventListener('resize', resize);
-    resize();
-
-    class DustMote {
-        constructor() {
-            this.reset(true);
-        }
-
-        reset(initial = false) {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height; 
-            
-            // Make them slightly larger so they are easier to see
-            this.size = Math.random() * 3.0 + 1.0;
-            
-            // Random movement in ANY direction, very slowly
-            this.speedY = (Math.random() - 0.5) * 0.3; 
-            this.speedX = (Math.random() - 0.5) * 0.3;
-            
-            this.driftAngle = Math.random() * Math.PI * 2;
-            this.driftSpeed = Math.random() * 0.015 + 0.005; // Slower drift
-        }
-
-        update(timeScale = 1) {
-            this.y += this.speedY * timeScale;
-            
-            // Sine wave drift
-            this.driftAngle += this.driftSpeed * timeScale;
-            this.x += (this.speedX + Math.sin(this.driftAngle) * 0.15) * timeScale;
-
-            // Seamlessly wrap around screen instead of resetting
-            if (this.y < -20) this.y = height + 20;
-            if (this.y > height + 20) this.y = -20;
-            if (this.x < -20) this.x = width + 20;
-            if (this.x > width + 20) this.x = -20;
-        }
-
-        draw() {
-            // Calculate distance from the spot center
-            const spotX = imgBounds.x + (imgBounds.w * spotXPercent);
-            const spotY = imgBounds.y + (imgBounds.h * spotYPercent);
-            
-            const dx = this.x - spotX;
-            const dy = this.y - spotY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            // Calculate opacity and color based on distance
-            let opacity = 0.35;
-            let isIlluminated = false;
-            
-            if (distance < glowRadius) {
-                // Closer to spot = more opaque, up to 0.8
-                const intensity = 1 - (distance / glowRadius);
-                opacity = 0.35 + (intensity * 0.55);
-                isIlluminated = true;
-            }
-
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            
-            if (isIlluminated) {
-                ctx.fillStyle = `rgba(${spotColorRGB}, ${opacity})`;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = `rgba(${spotColorRGB}, ${opacity})`;
-            } else {
-                ctx.fillStyle = `rgba(240, 240, 240, ${opacity})`;
-                // Add a dark drop shadow so the dust pops against lighter backgrounds
-                ctx.shadowBlur = 3;
-                ctx.shadowColor = `rgba(0, 0, 0, ${opacity * 1.5})`; 
-            }
-            
-            ctx.fill();
+    initParticles() {
+        this.particles = [];
+        for (let i = 0; i < this.particleCount; i++) {
+            this.particles.push(new DustMote(this));
         }
     }
 
-    function initParticles() {
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new DustMote());
-        }
-    }
-
-    let lastTime = 0;
-
-    function animate(currentTime) {
-        if (!lastTime) lastTime = currentTime;
-        const deltaTime = currentTime - lastTime;
-        lastTime = currentTime;
+    animate(currentTime) {
+        if (!this.lastTime) this.lastTime = currentTime;
+        const deltaTime = currentTime - this.lastTime;
+        this.lastTime = currentTime;
         const timeScale = Math.min(deltaTime / 16.666, 3);
 
-        ctx.clearRect(0, 0, width, height);
-        
-        ctx.globalCompositeOperation = 'source-over';
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        this.ctx.globalCompositeOperation = 'source-over';
 
-        for (let particle of particles) {
+        for (let particle of this.particles) {
             particle.update(timeScale);
             particle.draw();
         }
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame(this.animate);
+    }
+}
+
+class DustMote {
+    constructor(system) {
+        this.system = system;
+        this.reset(true);
     }
 
-    initParticles();
-    requestAnimationFrame(animate);
+    reset(initial = false) {
+        this.x = Math.random() * this.system.width;
+        this.y = Math.random() * this.system.height; 
+        
+        this.size = Math.random() * 3.0 + 1.0;
+        this.speedY = (Math.random() - 0.5) * 0.3; 
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        
+        this.driftAngle = Math.random() * Math.PI * 2;
+        this.driftSpeed = Math.random() * 0.015 + 0.005;
+    }
+
+    update(timeScale = 1) {
+        this.y += this.speedY * timeScale;
+        this.driftAngle += this.driftSpeed * timeScale;
+        this.x += (this.speedX + Math.sin(this.driftAngle) * 0.15) * timeScale;
+
+        if (this.y < -20) this.y = this.system.height + 20;
+        if (this.y > this.system.height + 20) this.y = -20;
+        if (this.x < -20) this.x = this.system.width + 20;
+        if (this.x > this.system.width + 20) this.x = -20;
+    }
+
+    draw() {
+        const sys = this.system;
+        const spotX = sys.imgBounds.x + (sys.imgBounds.w * sys.spotXPercent);
+        const spotY = sys.imgBounds.y + (sys.imgBounds.h * sys.spotYPercent);
+        
+        const dx = this.x - spotX;
+        const dy = this.y - spotY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        let opacity = 0.35;
+        let isIlluminated = false;
+        
+        if (sys.currentGlowRadius > 0 && distance < sys.currentGlowRadius) {
+            const intensity = 1 - (distance / sys.currentGlowRadius);
+            opacity = 0.35 + (intensity * 0.55);
+            isIlluminated = true;
+        }
+
+        sys.ctx.beginPath();
+        sys.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        
+        if (isIlluminated) {
+            sys.ctx.fillStyle = `rgba(${sys.spotColorRGB}, ${opacity})`;
+            sys.ctx.shadowBlur = 8;
+            sys.ctx.shadowColor = `rgba(${sys.spotColorRGB}, ${opacity})`;
+        } else {
+            sys.ctx.fillStyle = `rgba(240, 240, 240, ${opacity})`;
+            sys.ctx.shadowBlur = 3;
+            sys.ctx.shadowColor = `rgba(0, 0, 0, ${opacity * 1.5})`; 
+        }
+        
+        sys.ctx.fill();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const canvases = document.querySelectorAll('canvas.dust, #dust-canvas');
+    canvases.forEach(canvas => {
+        if (!canvas.dataset.systemInitialized) {
+            canvas.dataset.systemInitialized = 'true';
+            new DustSystem(canvas);
+        }
+    });
 });

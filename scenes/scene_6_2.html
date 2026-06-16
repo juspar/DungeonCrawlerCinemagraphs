@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Book 6 Chapter 2</title>
+    <link rel="stylesheet" href="../css/scene.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+        if (window !== window.parent) {
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+    
+    <div class="scene-container">
+        <!-- Static deep background elements -->
+        <img src="../Images/scene_6_2/DCC_6_2_sea.webp" class="layer sea parallax-static" style="z-index: 1;" alt="Sea">
+        <canvas id="sand-sparkle-canvas" 
+            class="layer sand-sparkle parallax-static" 
+            style="z-index: 2;"
+            data-sparkle-count="400"
+            data-color="240, 240, 240"
+            data-y-min="0.25"
+            data-y-max="1.0">
+        </canvas>         
+        <img src="../Images/scene_6_2/DCC_6_2_static.webp" class="layer static parallax-static" style="z-index: 10;" alt="Sky">
+
+        <!-- Camera effected layers -->
+        <div class="parallax-camera">
+            <img src="../Images/scene_6_2/DCC_6_2_background.webp" class="layer background parallax-bg" alt="Background">
+            <img src="../Images/scene_6_2/DCC_6_2_midground.webp" class="layer midground parallax-mid" alt="Midground"> 
+            <img src="../Images/scene_6_2/DCC_6_2_foreground.webp" class="layer foreground parallax-fg" alt="Foreground">
+
+            <div class="layer scrolling-track-container parallax-bg" style="z-index: 70;">
+                <div class="scrolling-track scroll-l2r" style="--scroll-speed: 58s; --vertical-offset: -3%;">
+                    <img src="../Images/scene_6_2/DCC_6_2_ghosts.l2r.webp" alt="Ghosts L2R">
+                    <img src="../Images/scene_6_2/DCC_6_2_ghosts.l2r.webp" alt="Ghosts L2R">
+                </div>
+            </div>
+
+            <div class="layer scrolling-track-container parallax-mid" style="z-index: 75;">
+                <div class="scrolling-track scroll-r2l" style="--scroll-speed: 68s; --vertical-offset: -3%;">
+                    <img src="../Images/scene_6_2/DCC_6_2_ghosts.r2l.webp" alt="Ghosts R2L">
+                    <img src="../Images/scene_6_2/DCC_6_2_ghosts.r2l.webp" alt="Ghosts R2L">
+                </div>
+            </div>
+
+            <img src="../Images/scene_6_2/DCC_6_2_carl.webp"
+                class="layer carl breathe parallax-fg"
+                style="z-index: 80; --breathe-duration: 8s; --breathe-delay: -0s;"
+                alt="Carl">  
+        </div>
+    </div>
+
+    <!-- Physics Engines -->
+        <script src="../js/sand_sparkle.js"></script>
+</body>
+</html>

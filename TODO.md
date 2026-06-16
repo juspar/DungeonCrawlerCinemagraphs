@@ -14,6 +14,8 @@
 - [x] 10. Add buttons to the player for previous and next chapter scenes
 - [x] 11. Remove ad stubs from mobile
 - [x] 12. Add multiple gate glows to scene 5_e. But how many is too many? One for each ball is too many, in that case, how many is too few?
+- [ ] 13. Add additional info to the site eg, Intent, usage instructions, dev details
+- [ ] 14. Move the 'Select Mode' button to a more centered location, possibly bottom left of the book/chapter grid?
 
 ## Art
 
@@ -25,7 +27,8 @@
 - [x] 5.2. Selva, the starting village
 - [x] 5.17. The earth from space
 - [x] 5.25. Fort Freedom
-- [ ] 6.2. El Capitol
+- [x] 6.2. El Capitol
+- [x] 6.2. ghost driver scroll
 - [ ] 6.10. Colon Cemetary
 
 ### Carl's gear
