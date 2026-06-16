@@ -16,7 +16,6 @@
     <div class="inventory-container">
         <header class="inventory-header">
             <h1>Inventory: Dungeon Cinemagraphs</h1>
-            <button id="toggle-select-mode" class="mode-toggle">Enter Select Mode</button>
         </header>
 
         <div class="inventory-body">
@@ -29,6 +28,9 @@
                 <button class="tab" data-target="book6">Book 6</button>
                 <button class="tab" data-target="book7">Book 7</button>
                 <button class="tab" data-target="book8">Book 8</button>
+                <button class="tab" data-target="info">Info</button>
+                <div class="sidebar-spacer" style="flex: 1;"></div>
+                <button id="toggle-select-mode" class="mode-toggle">Enter Select Mode</button>
             </aside>
 
             <main class="inventory-grid-container">
@@ -165,6 +167,28 @@
                     <div class="item-slot empty"></div>
                     <div class="item-slot empty"></div>
                 </div>
+
+                <div id="info" class="inventory-grid info-panel">
+                    <div class="info-card">
+                        <h2>Intent & Purpose</h2>
+                        <p>This application is an unofficial, fan-made companion display designed to provide atmospheric, infinitely looping ambient art ("cinemagraphs") for readers of the <em>Dungeon Crawler Carl</em> series by Matt Dinniman. The visuals are designed to set the mood of each floor/chapter without drawing active attention away from the text.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h2>How to Use</h2>
+                        <ul>
+                            <li><strong>Single Scene</strong>: Click on any unlocked slot in the grid to launch the scene in full-screen ambient mode.</li>
+                            <li><strong>Random Cycling</strong>: Click <em>Enter Select Mode</em> at the bottom-left of the screen, select multiple scenes by clicking slots in the grid, choose a transition duration, and click <em>Start Playlist</em>.</li>
+                            <li><strong>Ambient Controls</strong>: Use the exit button in the top-left to return, or use the navigation arrows to switch scenes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h2>Development Details</h2>
+                        <p>Each scene is constructed using multiple transparent WebP layers positioned in a 3D perspective camera space. Idle animations are driven entirely by hardware-accelerated CSS keyframes, while dynamic environmental elements (like steam, stars, sparkling sand, dust, and bubbles) are simulated in real-time using custom HTML5 Canvas physics engines for maximum efficiency during long reading sessions.</p>
+                        <p style="margin-top: 15px; border-top: 1px dashed var(--panel-border); padding-top: 12px;"><strong>Feedback & Requesting Scenes:</strong> If you have feedback, ideas for new scenes, or bug reports, please reach out to the developer at: <span id="email-link"><em>Loading contact...</em></span></p>
+                    </div>
+                </div>
             </main>
         </div>
 
@@ -201,6 +225,17 @@
         Advertisement
     </div>
 
+    <script type="text/javascript">
+        // Delaying or breaking the string prevents simple regex scrapers
+        const u = "juspar";
+        const t = "+DCC";
+        const d = "gmail.com";
+        
+        const fullEmail = u + t + "@" + d;
+        
+        const container = document.getElementById("email-link");
+        container.innerHTML = `<a href="mailto:${fullEmail}">${fullEmail}</a>`;
+    </script>
     <script src="js/main.js"></script>
 </body>
 
