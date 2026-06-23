@@ -29,7 +29,8 @@
 - [x] 5.25. Fort Freedom
 - [x] 6.2. El Capitol
 - [x] 6.2. ghost driver scroll
-- [ ] 6.10. Colon Cemetary
+- [x] 6.10. Colon Cemetary
+- [ ] 6.24. Crab crossing
 
 ### Carl's gear
 
