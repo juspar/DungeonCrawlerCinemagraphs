@@ -30,7 +30,7 @@
 - [x] 6.2. El Capitol
 - [x] 6.2. ghost driver scroll
 - [x] 6.10. Colon Cemetary
-- [ ] 6.24. Crab crossing
+- [x] 6.24. Crab crossing
 
 ### Carl's gear
 
