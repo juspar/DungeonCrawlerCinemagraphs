@@ -1,269 +1,426 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    
     <!-- Primary Meta Tags -->
     <title>Inventory: Dungeon Cinemagraphs</title>
-    <meta name="title" content="Inventory: Dungeon Cinemagraphs">
-    <meta name="description" content="An unofficial, fan-made companion display providing atmospheric, infinitely looping ambient art for readers of the Dungeon Crawler Carl series.">
+    <meta name="title" content="Inventory: Dungeon Cinemagraphs" />
+    <meta
+      name="description"
+      content="An unofficial, fan-made companion display providing atmospheric, infinitely looping ambient art for readers of the Dungeon Crawler Carl series."
+    />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Inventory: Dungeon Cinemagraphs">
-    <meta property="og:description" content="An unofficial, fan-made companion display providing atmospheric, infinitely looping ambient art for readers of the Dungeon Crawler Carl series.">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Inventory: Dungeon Cinemagraphs" />
+    <meta
+      property="og:description"
+      content="An unofficial, fan-made companion display providing atmospheric, infinitely looping ambient art for readers of the Dungeon Crawler Carl series."
+    />
     <!-- Note: og:image requires an absolute URL for production (e.g. https://yourdomain.com/Images/dcc_favicon.png) -->
-    <meta property="og:image" content="https://dynamic-crawler-cinemagraphs.netlify.app/Images/dcc_favicon.png">
+    <meta
+      property="og:image"
+      content="https://dynamic-crawler-cinemagraphs.netlify.app/Images/dcc_favicon.png"
+    />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Inventory: Dungeon Cinemagraphs">
-    <meta property="twitter:description" content="An unofficial, fan-made companion display providing atmospheric, infinitely looping ambient art for readers of the Dungeon Crawler Carl series.">
-    <meta property="twitter:image" content="Images/dcc_favicon.png">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Inventory: Dungeon Cinemagraphs" />
+    <meta
+      property="twitter:description"
+      content="An unofficial, fan-made companion display providing atmospheric, infinitely looping ambient art for readers of the Dungeon Crawler Carl series."
+    />
+    <meta property="twitter:image" content="Images/dcc_favicon.png" />
 
     <!-- Favicon Links -->
-    <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="Images/dcc_favicon.svg">
-    <link rel="icon" type="image/png" sizes="512x512" href="Images/dcc_favicon.png">
-    <link rel="apple-touch-icon" href="Images/dcc_favicon.png">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="Images/dcc_favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="Images/dcc_favicon.png"
+    />
+    <link rel="apple-touch-icon" href="Images/dcc_favicon.png" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="inventory-container">
-        <header class="inventory-header">
-            <h1>Inventory: Dungeon Cinemagraphs</h1>
-        </header>
+      <header class="inventory-header">
+        <h1>Inventory: Dungeon Cinemagraphs</h1>
+      </header>
 
-        <div class="inventory-body">
-            <aside class="tabs">
-                <button class="tab active" data-target="book1">Book 1</button>
-                <button class="tab" data-target="book2">Book 2</button>
-                <button class="tab" data-target="book3">Book 3</button>
-                <button class="tab" data-target="book4">Book 4</button>
-                <button class="tab" data-target="book5">Book 5</button>
-                <button class="tab" data-target="book6">Book 6</button>
-                <button class="tab" data-target="book7">Book 7</button>
-                <button class="tab" data-target="book8">Book 8</button>
-                <button class="tab" data-target="info">Info</button>
-                <div class="sidebar-spacer" style="flex: 1;"></div>
-                <button id="toggle-select-mode" class="mode-toggle">Enter Select Mode</button>
-            </aside>
+      <div class="inventory-body">
+        <aside class="tabs">
+          <button class="tab active" data-target="book1">Book 1</button>
+          <button class="tab" data-target="book2">Book 2</button>
+          <button class="tab" data-target="book3">Book 3</button>
+          <button class="tab" data-target="book4">Book 4</button>
+          <button class="tab" data-target="book5">Book 5</button>
+          <button class="tab" data-target="book6">Book 6</button>
+          <button class="tab" data-target="book7">Book 7</button>
+          <button class="tab" data-target="book8">Book 8</button>
+          <button class="tab" data-target="info">Info</button>
+          <div class="sidebar-spacer" style="flex: 1"></div>
+          <button id="toggle-select-mode" class="mode-toggle">
+            Enter Select Mode
+          </button>
+        </aside>
 
-            <main class="inventory-grid-container">
-                <div id="book1" class="inventory-grid active-grid">
-                    <!-- Changed href to data-url so JS handles the click logic depending on the mode -->
-                    <div class="item-slot selectable" data-url="scenes/scene_1_1.html" title="Chapter 1">
-                        <div class="item-icon scene-1-1"></div>
-                        <span class="item-name">Chapter 1</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_1_3.html" title="Chapter 3">
-                        <div class="item-icon scene-1-3"></div>
-                        <span class="item-name">Chapter 3</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_1_9.html" title="Chapter 9">
-                        <div class="item-icon scene-1-9"></div>
-                        <span class="item-name">Chapter 9</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_1_28.html" title="Chapter 28">
-                        <div class="item-icon scene-1-28"></div>
-                        <span class="item-name">Chapter 28</span>
-                    </div>
-                    <!-- Empty slots for visual RPG effect -->
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                </div>
+        <main class="inventory-grid-container">
+          <div id="book1" class="inventory-grid active-grid">
+            <!-- Changed href to data-url so JS handles the click logic depending on the mode -->
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_1_1.html"
+              title="Chapter 1"
+            >
+              <div class="item-icon scene-1-1"></div>
+              <span class="item-name">Chapter 1</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_1_3.html"
+              title="Chapter 3"
+            >
+              <div class="item-icon scene-1-3"></div>
+              <span class="item-name">Chapter 3</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_1_9.html"
+              title="Chapter 9"
+            >
+              <div class="item-icon scene-1-9"></div>
+              <span class="item-name">Chapter 9</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_1_28.html"
+              title="Chapter 28"
+            >
+              <div class="item-icon scene-1-28"></div>
+              <span class="item-name">Chapter 28</span>
+            </div>
+            <!-- Empty slots for visual RPG effect -->
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+          </div>
 
-                <div id="book2" class="inventory-grid">
-                    <div class="item-slot selectable" data-url="scenes/scene_2_6.html" title="Chapter 6">
-                        <div class="item-icon scene-2-6"></div>
-                        <span class="item-name">Chapter 6</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_2_15.html" title="Chapter 15">
-                        <div class="item-icon scene-2-15"></div>
-                        <span class="item-name">Chapter 15</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_2_24.html" title="Chapter 24">
-                        <div class="item-icon scene-2-24"></div>
-                        <span class="item-name">Chapter 24</span>
-                    </div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                </div>
+          <div id="book2" class="inventory-grid">
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_2_6.html"
+              title="Chapter 6"
+            >
+              <div class="item-icon scene-2-6"></div>
+              <span class="item-name">Chapter 6</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_2_15.html"
+              title="Chapter 15"
+            >
+              <div class="item-icon scene-2-15"></div>
+              <span class="item-name">Chapter 15</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_2_24.html"
+              title="Chapter 24"
+            >
+              <div class="item-icon scene-2-24"></div>
+              <span class="item-name">Chapter 24</span>
+            </div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+          </div>
 
-                <div id="book3" class="inventory-grid">
-                    <div class="item-slot selectable" data-url="scenes/scene_3_2.html" title="Chapter 2">
-                        <div class="item-icon scene-3-2"></div>
-                        <span class="item-name">Chapter 2</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_3_4.html" title="Chapter 4">
-                        <div class="item-icon scene-3-4"></div>
-                        <span class="item-name">Chapter 4</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_3_20.html" title="Chapter 20">
-                        <div class="item-icon scene-3-20"></div>
-                        <span class="item-name">Chapter 20</span>
-                    </div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                </div>
+          <div id="book3" class="inventory-grid">
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_3_2.html"
+              title="Chapter 2"
+            >
+              <div class="item-icon scene-3-2"></div>
+              <span class="item-name">Chapter 2</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_3_4.html"
+              title="Chapter 4"
+            >
+              <div class="item-icon scene-3-4"></div>
+              <span class="item-name">Chapter 4</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_3_20.html"
+              title="Chapter 20"
+            >
+              <div class="item-icon scene-3-20"></div>
+              <span class="item-name">Chapter 20</span>
+            </div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+          </div>
 
-                <div id="book4" class="inventory-grid">
-                    <div class="item-slot selectable" data-url="scenes/scene_4_3.html" title="Chapter 3">
-                        <div class="item-icon scene-4-3"></div>
-                        <span class="item-name">Chapter 3</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_4_20.html" title="Chapter 20">
-                        <div class="item-icon scene-4-20"></div>
-                        <span class="item-name">Chapter 20</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_4_33.html" title="Chapter 33">
-                        <div class="item-icon scene-4-33"></div>
-                        <span class="item-name">Chapter 33</span>
-                    </div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                </div>
+          <div id="book4" class="inventory-grid">
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_4_3.html"
+              title="Chapter 3"
+            >
+              <div class="item-icon scene-4-3"></div>
+              <span class="item-name">Chapter 3</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_4_20.html"
+              title="Chapter 20"
+            >
+              <div class="item-icon scene-4-20"></div>
+              <span class="item-name">Chapter 20</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_4_33.html"
+              title="Chapter 33"
+            >
+              <div class="item-icon scene-4-33"></div>
+              <span class="item-name">Chapter 33</span>
+            </div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+          </div>
 
-                <div id="book5" class="inventory-grid">
-                    <div class="item-slot selectable" data-url="scenes/scene_5_2.html" title="Chapter 2">
-                        <div class="item-icon scene-5-2"></div>
-                        <span class="item-name">Chapter 2</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_5_17.html" title="Chapter 17">
-                        <div class="item-icon scene-5-17"></div>
-                        <span class="item-name">Chapter 17</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_5_25.html" title="Chapter 25">
-                        <div class="item-icon scene-5-25"></div>
-                        <span class="item-name">Chapter 25</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_5_65.html" title="Chapter 65">
-                        <div class="item-icon scene-5-65"></div>
-                        <span class="item-name">Chapter 65</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_5_e.html" title="Epilogue">
-                        <div class="item-icon scene-5-e"></div>
-                        <span class="item-name">Epilogue</span>
-                    </div>
-                    <div class="item-slot empty"></div>
-                </div>
+          <div id="book5" class="inventory-grid">
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_5_2.html"
+              title="Chapter 2"
+            >
+              <div class="item-icon scene-5-2"></div>
+              <span class="item-name">Chapter 2</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_5_17.html"
+              title="Chapter 17"
+            >
+              <div class="item-icon scene-5-17"></div>
+              <span class="item-name">Chapter 17</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_5_25.html"
+              title="Chapter 25"
+            >
+              <div class="item-icon scene-5-25"></div>
+              <span class="item-name">Chapter 25</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_5_65.html"
+              title="Chapter 65"
+            >
+              <div class="item-icon scene-5-65"></div>
+              <span class="item-name">Chapter 65</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_5_e.html"
+              title="Epilogue"
+            >
+              <div class="item-icon scene-5-e"></div>
+              <span class="item-name">Epilogue</span>
+            </div>
+            <div class="item-slot empty"></div>
+          </div>
 
-                <div id="book6" class="inventory-grid">
-                    <div class="item-slot selectable" data-url="scenes/scene_6_2.html" title="Chapter 2">
-                        <div class="item-icon scene-6-2"></div>
-                        <span class="item-name">Chapter 2</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_6_10.html" title="Chapter 10">
-                        <div class="item-icon scene-6-10"></div>
-                        <span class="item-name">Chapter 10</span>
-                    </div>
-                    <div class="item-slot selectable" data-url="scenes/scene_6_24.html" title="Chapter 24">
-                        <div class="item-icon scene-6-24"></div>
-                        <span class="item-name">Chapter 24</span>
-                    </div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                </div>
+          <div id="book6" class="inventory-grid">
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_6_2.html"
+              title="Chapter 2"
+            >
+              <div class="item-icon scene-6-2"></div>
+              <span class="item-name">Chapter 2</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_6_10.html"
+              title="Chapter 10"
+            >
+              <div class="item-icon scene-6-10"></div>
+              <span class="item-name">Chapter 10</span>
+            </div>
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_6_24.html"
+              title="Chapter 24"
+            >
+              <div class="item-icon scene-6-24"></div>
+              <span class="item-name">Chapter 24</span>
+            </div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+          </div>
 
-                <div id="book7" class="inventory-grid">
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                </div>
+          <div id="book7" class="inventory-grid">
+            <div
+              class="item-slot selectable"
+              data-url="scenes/scene_7_7.html"
+              title="Chapter 7"
+            >
+              <div class="item-icon scene-7-7"></div>
+              <span class="item-name">Chapter 7</span>
+            </div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+          </div>
 
-                <div id="book8" class="inventory-grid">
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                    <div class="item-slot empty"></div>
-                </div>
+          <div id="book8" class="inventory-grid">
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+            <div class="item-slot empty"></div>
+          </div>
 
-                <div id="info" class="inventory-grid info-panel">
-                    <div class="info-card">
-                        <h2>Intent & Purpose</h2>
-                        <p>This application is an unofficial, fan-made companion display designed to provide atmospheric, infinitely looping ambient art ("cinemagraphs") for readers of the <em>Dungeon Crawler Carl</em> series by Matt Dinniman. The visuals are designed to set the mood of each floor/chapter without drawing active attention away from the text.</p>
-                    </div>
+          <div id="info" class="inventory-grid info-panel">
+            <div class="info-card">
+              <h2>Intent & Purpose</h2>
+              <p>
+                This application is an unofficial, fan-made companion display
+                designed to provide atmospheric, infinitely looping ambient art
+                ("cinemagraphs") for readers of the
+                <em>Dungeon Crawler Carl</em> series by Matt Dinniman. The
+                visuals are designed to set the mood of each floor/chapter
+                without drawing active attention away from the text.
+              </p>
+            </div>
 
-                    <div class="info-card">
-                        <h2>How to Use</h2>
-                        <ul>
-                            <li><strong>Single Scene</strong>: Click on any unlocked slot in the grid to launch the scene in full-screen ambient mode.</li>
-                            <li><strong>Random Cycling</strong>: Click <em>Enter Select Mode</em> at the bottom-left of the screen, select multiple scenes by clicking slots in the grid, choose a transition duration, and click <em>Start Playlist</em>.</li>
-                            <li><strong>Ambient Controls</strong>: Use the exit button in the top-left to return, or use the navigation arrows to switch scenes.</li>
-                        </ul>
-                    </div>
+            <div class="info-card">
+              <h2>How to Use</h2>
+              <ul>
+                <li>
+                  <strong>Single Scene</strong>: Click on any unlocked slot in
+                  the grid to launch the scene in full-screen ambient mode.
+                </li>
+                <li>
+                  <strong>Random Cycling</strong>: Click
+                  <em>Enter Select Mode</em> at the bottom-left of the screen,
+                  select multiple scenes by clicking slots in the grid, choose a
+                  transition duration, and click <em>Start Playlist</em>.
+                </li>
+                <li>
+                  <strong>Ambient Controls</strong>: Use the exit button in the
+                  top-left to return, or use the navigation arrows to switch
+                  scenes.
+                </li>
+              </ul>
+            </div>
 
-                    <div class="info-card">
-                        <h2>Development Details</h2>
-                        <p>Each scene is constructed using multiple transparent WebP layers positioned in a 3D perspective camera space. Idle animations are driven entirely by hardware-accelerated CSS keyframes, while dynamic environmental elements (like steam, stars, sparkling sand, dust, and bubbles) are simulated in real-time using custom HTML5 Canvas physics engines for maximum efficiency during long reading sessions.</p>
-                        <p style="margin-top: 15px; border-top: 1px dashed var(--panel-border); padding-top: 12px;"><strong>Feedback & Requesting Scenes:</strong> If you have feedback, ideas for new scenes, or bug reports, please reach out to the developer at: <span id="email-link"><em>Loading contact...</em></span></p>
-                    </div>
-                </div>
-            </main>
-        </div>
+            <div class="info-card">
+              <h2>Development Details</h2>
+              <p>
+                Each scene is constructed using multiple transparent WebP layers
+                positioned in a 3D perspective camera space. Idle animations are
+                driven entirely by hardware-accelerated CSS keyframes, while
+                dynamic environmental elements (like steam, stars, sparkling
+                sand, dust, and bubbles) are simulated in real-time using custom
+                HTML5 Canvas physics engines for maximum efficiency during long
+                reading sessions.
+              </p>
+              <p
+                style="
+                  margin-top: 15px;
+                  border-top: 1px dashed var(--panel-border);
+                  padding-top: 12px;
+                "
+              >
+                <strong>Feedback & Requesting Scenes:</strong> If you have
+                feedback, ideas for new scenes, or bug reports, please reach out
+                to the developer at:
+                <span id="email-link"><em>Loading contact...</em></span>
+              </p>
+            </div>
+          </div>
+        </main>
+      </div>
 
-        <!-- Playlist Controls (Hidden by default) -->
-        <div id="playlist-controls" class="playlist-controls hidden">
-            <span>Selected Scenes: <strong id="selection-count">0</strong></span>
+      <!-- Playlist Controls (Hidden by default) -->
+      <div id="playlist-controls" class="playlist-controls hidden">
+        <span>Selected Scenes: <strong id="selection-count">0</strong></span>
 
-            <label for="duration-select">Change every:</label>
-            <select id="duration-select">
-                <option value="1">1 Minute</option>
-                <option value="2">2 Minutes</option>
-                <option value="5" selected>5 Minutes</option>
-                <option value="10">10 Minutes</option>
-            </select>
+        <label for="duration-select">Change every:</label>
+        <select id="duration-select">
+          <option value="1">1 Minute</option>
+          <option value="2">2 Minutes</option>
+          <option value="5" selected>5 Minutes</option>
+          <option value="10">10 Minutes</option>
+        </select>
 
-            <button id="start-playlist" class="start-btn" disabled>Start Playlist</button>
-        </div>
-        
-        <footer style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.8rem; padding: 20px;">
-            Unofficial Fan Content, not endorsed by Matt Dinniman, LLC, or the Borant Corporation.
-        </footer>
+        <button id="start-playlist" class="start-btn" disabled>
+          Start Playlist
+        </button>
+      </div>
+
+      <footer
+        style="
+          text-align: center;
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 0.8rem;
+          padding: 20px;
+        "
+      >
+        Unofficial Fan Content, not endorsed by Matt Dinniman, LLC, or the
+        Borant Corporation.
+      </footer>
     </div>
 
     <!-- Advertising Slots -->
     <!-- Bottom leaderboard (728x90). Replace the inner comment with your ad network tag. -->
     <div class="ad-banner-bottom" id="ad-bottom">
-        <!-- AD NETWORK TAG HERE -->
-        Advertisement
+      <!-- AD NETWORK TAG HERE -->
+      Advertisement
     </div>
 
     <!-- Right-side skyscraper (160x600). Replace the inner comment with your ad network tag. -->
     <div class="ad-banner-side" id="ad-side">
-        <!-- AD NETWORK TAG HERE -->
-        Advertisement
+      <!-- AD NETWORK TAG HERE -->
+      Advertisement
     </div>
 
     <script type="text/javascript">
-        // Delaying or breaking the string prevents simple regex scrapers
-        const u = "juspar";
-        const t = "+DCC";
-        const d = "gmail.com";
-        
-        const fullEmail = u + t + "@" + d;
-        
-        const container = document.getElementById("email-link");
-        container.innerHTML = `<a href="mailto:${fullEmail}">${fullEmail}</a>`;
+      // Delaying or breaking the string prevents simple regex scrapers
+      const u = "juspar";
+      const t = "+DCC";
+      const d = "gmail.com";
+
+      const fullEmail = u + t + "@" + d;
+
+      const container = document.getElementById("email-link");
+      container.innerHTML = `<a href="mailto:${fullEmail}">${fullEmail}</a>`;
     </script>
     <script src="js/main.js"></script>
-</body>
-
+  </body>
 </html>

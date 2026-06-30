@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
+    <title>Book 7 Chapter 7</title>
+    <link rel="stylesheet" href="../css/scene.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+  </head>
+  <body>
+    <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
+    <script>
+      if (window !== window.parent) {
+        document.getElementById("back-btn").style.display = "none";
+      }
+    </script>
+
+    <div class="scene-container">
+      <!-- Static deep background elements -->
+      <img
+        src="../Images/scene_7_7/DCC_7_7_base.webp"
+        class="layer base parallax-static"
+        alt="Sky"
+      />
+
+      <!-- Camera effected layers -->
+      <div class="parallax-camera">
+        <img
+          src="../Images/scene_7_7/DCC_7_7_background.webp"
+          class="layer background parallax-bg"
+          alt="Laracoss"
+        />
+
+        <!-- Scrolling waterfall layer -->
+        <!-- Prod: <div class="layer waterfall-mask parallax-bg" style="z-index: 50; -webkit-mask-image: url('../Images/scene_7_7/DCC_7_7_waterfall_mask.webp'); mask-image: url('../Images/scene_7_7/DCC_7_7_waterfall_mask.webp'); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;"> -->
+        <!-- Dev: <div class="layer waterfall-mask parallax-bg" style="z-index: 50;"> -->
+        <div
+          class="layer waterfall-mask parallax-bg"
+          style="
+            z-index: 21;
+            -webkit-mask-image: url(&quot;../Images/scene_7_7/DCC_7_7_waterfall_mask.webp&quot;);
+            mask-image: url(&quot;../Images/scene_7_7/DCC_7_7_waterfall_mask.webp&quot;);
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+          "
+        >
+          <div
+            class="scrolling-bg-container-vertical"
+            style="--scroll-speed: 40s; --scroll-direction: reverse"
+          >
+            <img
+              src="../Images/scene_7_7/DCC_7_7_waterfall.webp"
+              class="scroll-segment"
+              alt="Waterfall"
+            />
+            <img
+              src="../Images/scene_7_7/DCC_7_7_waterfall.webp"
+              class="scroll-segment mirrored-vertical"
+              alt="Waterfall"
+            />
+            <img
+              src="../Images/scene_7_7/DCC_7_7_waterfall.webp"
+              class="scroll-segment"
+              alt="Waterfall"
+            />
+          </div>
+        </div>
+        <canvas
+          class="layer steam"
+          style="z-index: 50"
+          data-color="206,175,175"
+          data-opacity="0.12"
+          data-origin-x-min="0.0"
+          data-origin-x-max="1.0"
+          data-origin-y-min="0.95"
+          data-origin-y-max="1.10"
+          data-vel-x="-0.005"
+          data-vel-x-rand="0.01"
+          data-vel-y="-0.001"
+          data-vel-y-rand="0.002"
+          data-spawn-rate="0.25"
+          data-life-min="4.0"
+          data-life-max="7.0"
+          data-size-min="0.08"
+          data-size-max="0.15"
+          data-prewarm="15.0"
+        >
+        </canvas>
+
+        <img
+          src="../Images/scene_7_7/DCC_7_7_foreground.webp"
+          class="layer foreground parallax-fg"
+          alt="Foreground"
+        />
+
+        <img
+          src="../Images/scene_7_7/DCC_7_7_pets.webp"
+          class="layer pets bob parallax-fg"
+          style="z-index: 81; --bob-duration: 4s"
+          alt="The Pets"
+        />
+
+        <img
+          src="../Images/scene_7_7/DCC_7_7_characters.webp"
+          class="layer characters breathe parallax-fg"
+          style="z-index: 80; --breathe-duration: 8s"
+          alt="Carl and Donut"
+        />
+      </div>
+    </div>
+
+    <!-- Physics Engines -->
+    <script src="../js/steam.js"></script>
+  </body>
+</html>

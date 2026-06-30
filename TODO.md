@@ -31,6 +31,7 @@
 - [x] 6.2. ghost driver scroll
 - [x] 6.10. Colon Cemetary
 - [x] 6.24. Crab crossing
+- [ ] 7.7. Laracoss
 
 ### Carl's gear
 
@@ -45,9 +46,11 @@
 - Sleeveless black canvas jacket 4_27
 - Black bandana with white paisley printing, tied around head 4_27
 - Buckler bracer (left) 6_2
+- Waist length hair in pony tail cinched at several points along its length (7_5)
 
 ### Donut's gear
 
 - Tiara
 - Chainmail cruper (skirt)
 - Large dark 'movie star' glasses
+- Short sleeved silk shawl (7_4)
