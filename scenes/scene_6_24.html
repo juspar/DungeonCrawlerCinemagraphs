@@ -1,78 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
     <title>Book 6 Chapter 24</title>
-    <link rel="stylesheet" href="../css/scene.css">
-    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/scene.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
     <style>
-        @keyframes cameraPush {
-            0%, 100% {
-                transform: scale(1.0);
-            }
-            50% {
-                transform: scale(1.04);
-            }
+      @keyframes cameraPush {
+        0%,
+        100% {
+          transform: scale(1);
         }
-        .camera-push {
-            animation: cameraPush var(--push-duration, 60s) ease-in-out infinite;
+        50% {
+          transform: scale(1.04);
         }
+      }
+      .camera-push {
+        animation: cameraPush var(--push-duration, 60s) ease-in-out infinite;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <a href="../index.html" class="back-button" id="back-btn">⬅ Back</a>
     <script>
-        if (window !== window.parent) {
-            document.getElementById('back-btn').style.display = 'none';
-        }
+      if (window !== window.parent) {
+        document.getElementById("back-btn").style.display = "none";
+      }
     </script>
-    
+
     <div class="scene-container">
-        
-        <!-- Camera effected layers -->
-        <div class="parallax-camera camera-push" style="transform-origin: 50.8% 26.0%; --push-duration: 60s;">
+      <!-- Camera effected layers -->
+      <div
+        class="parallax-camera camera-push"
+        style="transform-origin: 50.8% 26%; --push-duration: 60s"
+      >
+        <img
+          src="../Images/scene_6_24/DCC_6_24_sea.webp"
+          class="layer sea ripple parallax-bg"
+          style="z-index: 5"
+          alt="Sea"
+        />
 
-            <img src="../Images/scene_6_24/DCC_6_24_sea.webp" class="layer sea ripple parallax-bg" style="z-index: 5;" alt="Sea">
-            
-            <canvas id="sand-sparkle-canvas" 
-                class="layer sand-sparkle parallax-bg" 
-                style="z-index: 6;"
-                data-sparkle-count="400"
-                data-color="240, 240, 240"
-                data-y-min="0.25"
-                data-y-max="1.0">
-            </canvas>
+        <canvas
+          id="sand-sparkle-canvas"
+          class="layer sand-sparkle parallax-bg"
+          style="z-index: 6"
+          data-sparkle-count="400"
+          data-color="240, 240, 240"
+          data-y-min="0.25"
+          data-y-max="1.0"
+        >
+        </canvas>
 
-            <img src="../Images/scene_6_24/DCC_6_24_background.webp" class="layer background parallax-bg" style="z-index: 10;" alt="Background">
-            <img src="../Images/scene_6_24/DCC_6_24_beach.webp" class="layer beach parallax-bg" style="z-index: 20;" alt="Beach">
-            <img src="../Images/scene_6_24/DCC_6_24_road.webp" class="layer road parallax-mid" style="z-index: 30;" alt="Road">
-            <img src="../Images/scene_6_24/DCC_6_24_swamp_back.webp" class="layer swamp-back parallax-mid" style="z-index: 40;" alt="Swamp Back">
-            
-            <!-- Scrolling Crabs Layer Masked by Sea -->
-            <!-- Prod: <div class="layer crab-mask parallax-mid" style="z-index: 50; -webkit-mask-image: url('../Images/scene_6_24/DCC_6_24_sea.webp'); mask-image: url('../Images/scene_6_24/DCC_6_24_sea.webp'); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;"> -->
-            <!-- Dev: <div class="layer crab-mask parallax-mid" style="z-index: 50;"> -->
-            <div class="layer crab-mask parallax-mid" style="z-index: 50; -webkit-mask-image: url('../Images/scene_6_24/DCC_6_24_crab_mask.webp'); mask-image: url('../Images/scene_6_24/DCC_6_24_crab_mask.webp'); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;">
-                <div class="scrolling-bg-container" style="--scroll-speed: 40s;">
-                    <img src="../Images/scene_6_24/DCC_6_24_crabs.webp" class="scroll-segment" alt="Crabs">
-                </div>
-            </div>
+        <img
+          src="../Images/scene_6_24/DCC_6_24_background.webp"
+          class="layer background parallax-bg"
+          style="z-index: 10"
+          alt="Background"
+        />
+        <img
+          src="../Images/scene_6_24/DCC_6_24_beach.webp"
+          class="layer beach parallax-bg"
+          style="z-index: 20"
+          alt="Beach"
+        />
+        <img
+          src="../Images/scene_6_24/DCC_6_24_road.webp"
+          class="layer road parallax-mid"
+          style="z-index: 30"
+          alt="Road"
+        />
+        <img
+          src="../Images/scene_6_24/DCC_6_24_swamp_back.webp"
+          class="layer swamp-back parallax-mid"
+          style="z-index: 40"
+          alt="Swamp Back"
+        />
 
-            <img src="../Images/scene_6_24/DCC_6_24_swamp_fore.webp" class="layer swamp-fore parallax-mid" style="z-index: 55;" alt="Swamp Fore">
-
-            <img src="../Images/scene_6_24/DCC_6_24_foreground.webp" class="layer foreground parallax-fg" style="z-index: 60;" alt="Foreground">
-            
-            <img src="../Images/scene_6_24/DCC_6_24_carl.webp" class="layer carl breathe parallax-fg" style="z-index: 80; --breathe-duration: 8s;" alt="Carl">
-            <img src="../Images/scene_6_24/DCC_6_24_mongo.webp" class="layer mongo bob parallax-fg" style="z-index: 82; --bob-duration: 4s;" alt="Mongo">
-
-
-            <canvas id="insects-canvas" class="layer insects parallax-fg" style="z-index: 90;" data-particle-count="150"></canvas>
+        <!-- Scrolling Crabs Layer Masked by Sea -->
+        <!-- Prod: <div class="layer crab-mask parallax-mid" style="z-index: 50; -webkit-mask-image: url('../Images/scene_6_24/DCC_6_24_sea.webp'); mask-image: url('../Images/scene_6_24/DCC_6_24_sea.webp'); -webkit-mask-size: cover; mask-size: cover; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;"> -->
+        <!-- Dev: <div class="layer crab-mask parallax-mid" style="z-index: 50;"> -->
+        <div
+          class="layer crab-mask parallax-mid"
+          style="
+            z-index: 50;
+            -webkit-mask-image: url(&quot;../Images/scene_6_24/DCC_6_24_crab_mask.webp&quot;);
+            mask-image: url(&quot;../Images/scene_6_24/DCC_6_24_crab_mask.webp&quot;);
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+          "
+        >
+          <div class="scrolling-bg-container" style="--scroll-speed: 40s">
+            <img
+              src="../Images/scene_6_24/DCC_6_24_crabs.webp"
+              class="scroll-segment"
+              alt="Crabs"
+            />
+            <img
+              src="../Images/scene_6_24/DCC_6_24_crabs.webp"
+              class="scroll-segment"
+              alt="Crabs"
+            />
+            <img
+              src="../Images/scene_6_24/DCC_6_24_crabs.webp"
+              class="scroll-segment"
+              alt="Crabs"
+            />
+          </div>
         </div>
+
+        <img
+          src="../Images/scene_6_24/DCC_6_24_swamp_fore.webp"
+          class="layer swamp-fore parallax-mid"
+          style="z-index: 55"
+          alt="Swamp Fore"
+        />
+
+        <img
+          src="../Images/scene_6_24/DCC_6_24_foreground.webp"
+          class="layer foreground parallax-fg"
+          style="z-index: 60"
+          alt="Foreground"
+        />
+
+        <img
+          src="../Images/scene_6_24/DCC_6_24_carl.webp"
+          class="layer carl breathe parallax-fg"
+          style="z-index: 80; --breathe-duration: 8s"
+          alt="Carl"
+        />
+        <img
+          src="../Images/scene_6_24/DCC_6_24_mongo.webp"
+          class="layer mongo bob parallax-fg"
+          style="z-index: 82; --bob-duration: 4s"
+          alt="Mongo"
+        />
+
+        <canvas
+          id="insects-canvas"
+          class="layer insects parallax-fg"
+          style="z-index: 90"
+          data-particle-count="150"
+        ></canvas>
+      </div>
     </div>
 
     <!-- Physics Engines -->
     <script src="../js/sand_sparkle.js"></script>
     <script src="../js/insects.js"></script>
-</body>
+  </body>
 </html>
